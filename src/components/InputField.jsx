@@ -1,10 +1,10 @@
 import React from 'react'
 
-const InputField = ({type,name,value,onChange,placeholder,className,children,error}) => {
+const InputField = ({type,name,value,onChange,placeholder,className,children,error, labelSize = "text-xs",mb="mb-3"}) => {
   return (
-    <div className="form-control mb-3">
+    <div className={`form-control ${mb}`}>
         <label className="label ">
-            <span className="label-text text-Primary-Blue text-xs font-medium">
+            <span className={`label-text text-Primary-Blue ${labelSize} font-medium`}>
                 {children}
             </span>
         </label>

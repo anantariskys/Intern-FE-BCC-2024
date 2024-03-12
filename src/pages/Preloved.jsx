@@ -99,7 +99,9 @@ const Preloved = () => {
             <p className="text-3xl aspect-square p-2 bg-Secondary-LightYellow bg-opacity-50 rounded-full">🤗</p>
             <p className="text-base font-medium text-Primary-LightBlue">Punya barang tak terpakai? jual di sini aja!</p>
           </div>
+          <Link to={'/preloved/add'}>
           <button className="px-4 py-2 btn text-base self-end font-semibold text-Primary-Blue">Mulai Jualan</button>
+          </Link>
         </section>
 
         <section className="w-full py-4 mb-8">

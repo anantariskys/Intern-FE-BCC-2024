@@ -9,6 +9,8 @@ import Register from "../pages/Register";
 import Preloved from "../pages/Preloved";
 import PrelovedDetail from "../pages/PrelovedDetail";
 import PageLayout from "../components/layout/PageLayout";
+import Verifikasi from "../pages/Verifikasi";
+import TambahPreloved from "../pages/TambahPreloved";
 const createRouter = createBrowserRouter([
   {
     path: "/",
@@ -30,8 +32,16 @@ const createRouter = createBrowserRouter([
     element: <PrivateRoute />,
     children: [
       {
-        path: "profil",
+        path: "profile",
         element: <PageLayout><Profil/></PageLayout>,
+      },
+      {
+        path: "verifikasi",
+        element:  <Verifikasi/>,
+      },
+      {
+        path: "/preloved/add",
+        element: <PageLayout> <TambahPreloved/></PageLayout>,
       },
     ],
   },

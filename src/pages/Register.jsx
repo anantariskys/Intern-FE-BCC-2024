@@ -80,6 +80,22 @@ const Register = () => {
 
    
   };
+  const reset = ()=>{
+    setIsValid(true)
+    setInput({
+      Name: "",
+      Username: "",
+      Email: "",
+      Password: "",
+    })
+    setErrors({
+      Name: "",
+      Username: "",
+      Email: "",
+      Password: "",
+    })
+    
+  }
 
   return (
     <div className="bg-Primary-LightBlue font-Poppins h-screen w-full py-6 flex flex-col px-4">
@@ -87,16 +103,16 @@ const Register = () => {
         <h2 className="text-Primary-Blue font-semibold text-2xl  ">Buat Akun dulu yuk!</h2>
         <p className="text-sm text-Text-Black w-3/4 mb-5">Biar kamu bisa gunain semua fitur yang ada di BRAW!</p>
         <section>
-          <InputField type={"text"} name={"fullName"} value={input.fullName} onChange={handleChange} placeholder={"cth. Muhammad Dahlan"} error={errors.fullName}>
+          <InputField type={"text"} name={"Name"} value={input.Name} onChange={handleChange} placeholder={"cth. Muhammad Dahlan"} error={errors.Name}>
             Nama Lengkap
           </InputField>
-          <InputField type={"text"} name={"username"} value={input.username} onChange={handleChange} placeholder={"Dahlan123"} error={errors.username}>
+          <InputField type={"text"} name={"Username"} value={input.Username} onChange={handleChange} placeholder={"Dahlan123"} error={errors.Username}>
             Username
           </InputField>
-          <InputField type={"email"} name={"email"} value={input.email} onChange={handleChange} placeholder={"dahlan@student.ub.ac.id (Emaill UB)"} error={errors.email}>
+          <InputField type={"email"} name={"Email"} value={input.Email} onChange={handleChange} placeholder={"dahlan@student.ub.ac.id (Emaill UB)"} error={errors.Email}>
             Email UB
           </InputField>
-          <InputField type={"password"} name={"password"} value={input.password} onChange={handleChange} placeholder={"masukkan kata sandi"} error={errors.password}>
+          <InputField type={"password"} name={"Password"} value={input.Password} onChange={handleChange} placeholder={"masukkan kata sandi"} error={errors.Password}>
             Kata Sandi
           </InputField>
 
@@ -109,11 +125,11 @@ const Register = () => {
         </section>
 
         <div className="  w-full flex flex-col items-center">
-          <button type="submit" className="btn bg-Primary-Blue  text-Primary-White py-2 self-center mb-3  px-12 w-1/2 text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
+          <button type="submit" className="btn bg-Primary-Blue  text-Primary-LightBlue py-2 self-center mb-3  px-12 w-1/2 text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out active:bg-opacity-75">
             Daftar
           </button>
           <p className="text-base text-Text-Black mx-auto">
-            Sudah punya akun?<Link to={'/login'}><span className="text-Primary-Blue">Masuk.</span></Link> 
+            Sudah punya akun?<Link to={'/login'}><span className="text-Primary-Blue font-semibold">Masuk.</span></Link> 
           </p>
         </div>
       </form>
