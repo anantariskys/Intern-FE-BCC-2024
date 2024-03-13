@@ -116,7 +116,7 @@ const Preloved = () => {
           </div>
           <label className="input input-bordered flex items-center gap-2">
             <Icon icon="mdi:search" className="text-xl text-Outline-gray" />
-            <input type="text" className="grow text-Text-Black" placeholder="Search" />
+            <input type="text" className="grow bg-transparent text-Text-Black" placeholder="Search" />
           </label>
         </section>
         <section className="w-full flex flex-wrap justify-center gap-4 ">
