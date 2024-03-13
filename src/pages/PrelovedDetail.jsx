@@ -25,9 +25,9 @@ const PrelovedDetail = () => {
                     <img src="https://source.unsplash.com/random/900x700/?books" className='w-full mb-10 aspect-square object-cover rounded-lg' alt="image" loading='lazy' />
                 </SplideSlide>
             </Splide>
-            <h3 className='mt-4 text-base font-semibold'>Buku Algoritma dan Struktur Data</h3>
-            <p className='text-xl font-medium px-4 bg-Secondary-LightTeal inline-block rounded-2xl mt-4'>Rp 89.000</p>
-            <p className='text-sm mt-4 text-left'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+            <h3 className='mt-4 text-base font-semibold text-Text-Black'>Buku Algoritma dan Struktur Data</h3>
+            <p className='text-xl font-medium px-4 bg-Secondary-LightTeal text-Text-Black inline-block rounded-2xl mt-4'>Rp 89.000</p>
+            <p className='text-sm mt-4 text-left text-Text-Black'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
             <button className='btn w-full mt-4 bg-Primary-Blue text-Primary-White hover:bg-Primary-Purple duration-300 ease-in-out'>Beli Sekarang <Icon icon='mingcute:whatsapp-line'/></button>
         </div>
     

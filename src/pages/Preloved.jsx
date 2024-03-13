@@ -101,7 +101,7 @@ const Preloved = () => {
           </div>
           <div className="w-full flex justify-end">
           <Link to={'/preloved/add'}>
-          <button className="px-4 py-2 btn text-base  font-semibold bg-Primary-White hover:bg-Secondary-LightTeal text-Primary-Blue">Mulai Jualan</button>
+          <button className="px-4 py-2 btn text-base border-0 font-semibold bg-Primary-White duration-300 ease-in-out hover:bg-Secondary-LightTeal text-Primary-Blue">Mulai Jualan</button>
           </Link>
 
           </div>
@@ -109,12 +109,12 @@ const Preloved = () => {
 
         <section className="w-full py-4 mb-8">
           <div className="flex items-center justify-between mb-4 ">
-            <h2 className="text-lg font-semibold bg-Secondary-LightYellow bg-opacity-50 py-1 px-3 rounded-2xl">😍 Temukan Preloved favoritmu!</h2>
+            <h2 className="text-lg font-semibold bg-Secondary-LightYellow text-Text-Black bg-opacity-50 py-1 px-3 rounded-2xl">😍 Temukan Preloved favoritmu!</h2>
             <div className="h-full aspect-square bg-Primary-Blue rounded-lg w-9 flex justify-center items-center">
               <Icon icon="mingcute:settings-6-line" className="text-Primary-LightBlue text-lg" />
             </div>
           </div>
-          <label className="input input-bordered flex items-center gap-2">
+          <label className="input input-bordered bg-transparent flex items-center gap-2">
             <Icon icon="mdi:search" className="text-xl text-Outline-gray" />
             <input type="text" className="grow bg-transparent text-Text-Black" placeholder="Search" />
           </label>
