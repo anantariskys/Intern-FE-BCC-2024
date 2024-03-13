@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 const GuestRoute = () => {
     const isAuthenticate = useAuth()
   
-  if (isAuthenticate) {
+  if (!isAuthenticate) {
     return <Navigate to={"/"} />;
   }
   return <Outlet />;

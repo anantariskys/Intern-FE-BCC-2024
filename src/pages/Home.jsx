@@ -86,9 +86,9 @@ const Home = () => {
     <div className="bg-Primary-LightBlue">
 
       <main className="w-full">
-        <section className="px-4 font-Poppins mt-8 mb-8">
+        <section className="px-4 font-Poppins pt-8 mb-8">
           <div className="flex items-center justify-between mb-4 ">
-            <h2 className="text-base font-semibold bg-Primary-White text-Text-Black py-1 px-3 rounded-2xl">😍 Barang Preloved terfavorit</h2>
+            <h2 className="text-base font-semibold bg-Secondary-LightYellow bg-opacity-50 text-Text-Black py-1 px-3 rounded-2xl">😍 Barang Preloved terfavorit</h2>
             <Link to={'/preloved'}><p className="text-xs text-Primary-Blue text-center">Selengkapnya</p></Link>
           </div>
           <Splide
@@ -102,7 +102,7 @@ const Home = () => {
           >
             {dummy.map((item, index) => (
               <SplideSlide key={index}>
-                <div className="w-full active:scale-[98%] duration-100 ease-in-out flex p-4 bg-gradient-to-r mb-10 gap-4 from-Primary-Purple font-Poppins to-Primary-Blue rounded-2xl">
+                <div className="w-full duration-100 ease-in-out flex p-4 bg-gradient-to-r mb-10 gap-4 from-Primary-Purple font-Poppins to-Primary-Blue rounded-2xl">
                   <img src={item.image} alt="card-image" loading="lazy" draggable="false" className="h-28 object-cover aspect-square rounded-xl" />
                   <div className="flex flex-col justify-between">
                     <h1 className="text-base text-Primary-LightBlue font-medium">{item.name}</h1>
@@ -117,42 +117,50 @@ const Home = () => {
           </Splide>
         </section>
         <section className="px-4 font-Poppins ">
-          <h2 className="text-base font-semibold bg-Primary-White text-Text-Black py-1 mb-4 inline-block px-3 rounded-2xl">😎 Fitur Kami</h2>
+          <h2 className="text-base font-semibold bg-Secondary-LightYellow bg-opacity-50 text-Text-Black py-1 mb-4 inline-block px-3 rounded-2xl">😎 Fitur Kami</h2>
           <div className="flex justify-between gap-6">
-            <div className="w-1/5">
-              <div className="w-full flex justify-center items-center hover:scale-105 duration-300 ease-in-out aspect-square rounded-lg bg-Primary-Blue">
+            <Link className="w-1/5" to={'/preloved'}>
+            
+              <div className="w-full flex justify-center items-center aspect-square rounded-lg bg-Primary-Blue hover:bg-Primary-Purple duration-300 ease-in-out">
                 <Icon icon="mdi:shopping" className="text-Primary-LightBlue text-2xl" />
               </div>
               <p className="text-xs font-medium text-Text-Black text-center mt-1">Temu Preloved</p>
-            </div>
-            <div className="w-1/5">
-              <div className="w-full flex justify-center items-center hover:scale-105 duration-300 ease-in-out aspect-square rounded-lg bg-Primary-Blue">
+          
+            </Link>
+            <Link className="w-1/5" to={"/jastip"}>
+        
+              <div className="w-full flex justify-center items-center aspect-square rounded-lg bg-Primary-Blue hover:bg-Primary-Purple duration-300 ease-in-out">
                 <Icon icon="mdi:shopping" className="text-Primary-LightBlue text-2xl" />
               </div>
               <p className="text-xs font-medium text-Text-Black text-center mt-1">Jastip</p>
-            </div>
-            <div className="w-1/5">
-              <div className="w-full flex justify-center items-center hover:scale-105 duration-300 ease-in-out aspect-square rounded-lg bg-Primary-Blue">
+          
+            </Link>
+            <Link className="w-1/5" to={'/antarJemput'}>
+           
+              <div className="w-full flex justify-center items-center aspect-square rounded-lg bg-Primary-Blue hover:bg-Primary-Purple duration-300 ease-in-out">
                 <Icon icon="mdi:shopping" className="text-Primary-LightBlue text-2xl" />
               </div>
               <p className="text-xs font-medium text-Text-Black text-center mt-1">Antar Jemput</p>
-            </div>
-            <div className="w-1/5">
-              <div className="w-full flex justify-center items-center hover:scale-105 duration-300 ease-in-out aspect-square rounded-lg bg-Primary-Blue">
+         
+            </Link>
+            <Link className="w-1/5" to={'/komunitas'}>
+           
+              <div className="w-full flex justify-center items-center aspect-square rounded-lg bg-Primary-Blue hover:bg-Primary-Purple duration-300 ease-in-out">
                 <Icon icon="mdi:shopping" className="text-Primary-LightBlue text-2xl" />
               </div>
               <p className="text-xs font-medium text-Text-Black text-center mt-1">Komunitas BRAW!</p>
-            </div>
+          
+            </Link>
           </div>
         </section>
         <section className="px-4 font-Poppins mt-8 mb-8">
           <div className="flex items-center justify-between mb-4 ">
-            <h2 className="text-base font-semibold bg-Primary-White text-Text-Black py-1 px-3 rounded-2xl">😉 Mau nitip apa hari ini?</h2>
+            <h2 className="text-base font-semibold bg-Secondary-LightYellow bg-opacity-50 text-Text-Black py-1 px-3 rounded-2xl">😉 Mau nitip apa hari ini?</h2>
             <p className="text-xs text-Primary-Blue text-center">Selengkapnya</p>
           </div>
           <div className="flex flex-col gap-4">
             {dumm1.map((item, index) => (
-              <div key={index} className="rounded-2xl w-full flex justify-between bg-Primary-White p-3 gap-2  border border-Outline-gray">
+              <div key={index} className="rounded-2xl w-full flex justify-between hover:bg-Primary-White duration-300 ease-in-out hover:shadow-xl p-3 gap-2  border border-Outline-gray">
                 <img src={item.image} draggable="false" loading="lazy" alt="card-image" className="h-28 object-cover aspect-square rounded-xl" />
                 <div className="flex-col flex justify-between ">
                   <div className="">
@@ -161,7 +169,7 @@ const Home = () => {
                   </div>
                   <div className="flex justify-between items-end gap-2">
                     <p className="text-xs font-normal text-Text-Black">{item.closeOrder}</p>
-                    <button className="text-[0.625rem] btn btn-xs hover:bg-Secondary-LightTeal hover:text-Primary-Blue ease-in-out duration-200  bg-Primary-Blue text-Primary-White">
+                    <button className="text-[0.625rem] btn btn-xs hover:bg-Primary-Purple ease-in-out duration-200  bg-Primary-Blue text-Primary-White">
                       Selengkapnya
                       <span>
                         <Icon icon="ooui:next-ltr" />
@@ -175,20 +183,20 @@ const Home = () => {
         </section>
         <section className="px-4 font-Poppins mt-8 mb-8">
           <div className="flex items-center justify-between mb-4 ">
-            <h2 className="text-base font-semibold bg-Primary-White text-Text-Black py-1 px-3 rounded-2xl">🤩 Temukan jasa di BRAW!</h2>
+            <h2 className="text-base font-semibold bg-Secondary-LightYellow bg-opacity-50 text-Text-Black py-1 px-3 rounded-2xl">🤩 Temukan jasa di BRAW!</h2>
             <p className="text-xs text-Primary-Blue text-center">Selengkapnya</p>
           </div>
           <div className="flex flex-col gap-4">
             {dummy2.map((item, index) => (
-              <div key={index} className="rounded-2xl w-full flex  bg-Primary-White p-3 gap-2 border border-Outline-gray">
-                <div className="w-1/5 flex justify-center items-center hover:scale-105 duration-300 ease-in-out aspect-square rounded-lg bg-Primary-Blue">
+              <div key={index} className="rounded-2xl w-full flex  hover:bg-Primary-White duration-300 ease-in-out hover:shadow-xl p-3 gap-2 border border-Outline-gray">
+                <div className="w-16 flex justify-center items-center  aspect-square rounded-lg bg-Primary-Blue">
                   <Icon icon="fa6-solid:handshake" className="text-Primary-LightBlue text-2xl" />
                 </div>
-                <div className="flex flex-col justify-center gap-5 w-full">
+                <div className="flex flex-col justify-center gap-5 w-3/4">
                   <h3 className="text-base font-semibold text-Text-Black line-clamp-1">{item.name}</h3>
                   <div className="flex  w-full  justify-between">
                     <p className="font-medium text-xs px-3 py-px flex text-Text-Black  justify-center items-center bg-Secondary-LightTeal rounded-2xl">{item.price}</p>
-                    <button className="text-[0.625rem] btn btn-xs hover:bg-Secondary-LightTeal hover:text-Primary-Blue ease-in-out duration-200  bg-Primary-Blue text-Primary-White">
+                    <button className="text-[0.625rem] btn btn-xs hover:bg-Primary-Purple ease-in-out duration-200  bg-Primary-Blue text-Primary-White">
                       Selengkapnya
                       <span>
                         <Icon icon="ooui:next-ltr" />

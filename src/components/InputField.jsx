@@ -1,6 +1,8 @@
 import React from 'react'
 
-const InputField = ({type,name,value,onChange,placeholder,className,children,error}) => {
+
+const InputField = ({type,name,value,onChange,placeholder,className,children,error, labelSize = "text-xs",mb="mb-4"}) => {
+
   return (
     <div className="form-control mb-3">
         <label className="label ">
@@ -14,7 +16,7 @@ const InputField = ({type,name,value,onChange,placeholder,className,children,err
             value={value}
             onChange={onChange}
             placeholder={placeholder}
-            className={`${className} input input-bordered ${error?'border-red-500':''} bg-transparent`}
+            className={`${className} input input-bordered ${error?'border-red-500':''} text-Text-Black text-xs bg-transparent`}
             required
         />
         {

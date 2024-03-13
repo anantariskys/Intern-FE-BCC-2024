@@ -99,38 +99,43 @@ const Preloved = () => {
             <p className="text-3xl aspect-square p-2 bg-Secondary-LightYellow bg-opacity-50 rounded-full">🤗</p>
             <p className="text-base font-medium text-Primary-LightBlue">Punya barang tak terpakai? jual di sini aja!</p>
           </div>
-          <button className="px-4 py-2 btn text-base self-end font-semibold text-Primary-Blue">Mulai Jualan</button>
+          <div className="w-full flex justify-end">
+          <Link to={'/preloved/add'}>
+          <button className="px-4 py-2 btn text-base  font-semibold bg-Primary-White hover:bg-Secondary-LightTeal text-Primary-Blue">Mulai Jualan</button>
+          </Link>
+
+          </div>
         </section>
 
         <section className="w-full py-4 mb-8">
           <div className="flex items-center justify-between mb-4 ">
-            <h2 className="text-lg font-semibold bg-Primary-White py-1 px-3 rounded-2xl">😍 Temukan Preloved favoritmu!</h2>
+            <h2 className="text-lg font-semibold bg-Secondary-LightYellow bg-opacity-50 py-1 px-3 rounded-2xl">😍 Temukan Preloved favoritmu!</h2>
             <div className="h-full aspect-square bg-Primary-Blue rounded-lg w-9 flex justify-center items-center">
               <Icon icon="mingcute:settings-6-line" className="text-Primary-LightBlue text-lg" />
             </div>
           </div>
           <label className="input input-bordered flex items-center gap-2">
             <Icon icon="mdi:search" className="text-xl text-Outline-gray" />
-            <input type="text" className="grow text-Text-Placeholder" placeholder="Search" />
+            <input type="text" className="grow text-Text-Black" placeholder="Search" />
           </label>
         </section>
         <section className="w-full flex flex-wrap justify-center gap-4 ">
           {prelove.map((item, index) => (
             <Link to={`/preloved/${item.id}`}>
-              <div key={index} className="w-40 h-72 self-start p-3 border hover:-translate-y-1 duration-300 ease-in-out flex flex-col justify-between border-Outline-gray rounded-2xl">
+              <div key={index} className="w-40 h-72 self-start p-3 border hover:bg-Primary-White duration-300 hover:shadow-2xl hover:-translate-y-1 ease-in-out flex flex-col justify-between border-Outline-gray rounded-2xl">
                 <div className="flex-col flex gap-2">
                   <div>
-                    <h2 className="text-[0.675rem] font-medium inline-block bg-Primary-White py-px px-4 rounded-2xl">{item.kategori}</h2>
+                    <h2 className="text-xs  text-Primary-White font-medium inline-block bg-gradient-to-r from-Primary-Purple to-Primary-Blue py-px px-4 rounded-2xl">{item.kategori}</h2>
                   </div>
                   <img src={item.image} className="w-full aspect-square rounded-lg" loading="lazy" alt="product-image" />
-                  <h2 className="text-[0.675rem] font-medium ">{item.nama}</h2>
+                  <h2 className="text-xs text-Text-Black font-medium ">{item.nama}</h2>
                   <div>
-                    <h2 className="text-[0.675rem] font-medium inline-block bg-Secondary-LightTeal py-px px-3 rounded-2xl">{item.price}</h2>
+                    <h2 className="text-xs text-Text-Black font-medium inline-block bg-Secondary-LightTeal py-px px-3 rounded-2xl">{item.price}</h2>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
-                  <p className="text-[0.675rem]  font-semibold">⭐ Kondisi {item.kondisi}</p>
-                  <p className="text-[0.675rem] font-light">{item.countdown} Hari</p>
+                  <p className="text-xs text-Text-Black  font-semibold">⭐ Kondisi {item.kondisi}</p>
+                  <p className="text-xs text-Text-Black font-light">{item.countdown} Hari</p>
                 </div>
               </div>
             </Link>
