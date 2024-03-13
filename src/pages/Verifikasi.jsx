@@ -93,8 +93,8 @@ const Verifikasi = () => {
 
       <form onSubmit={handleSubmit} action="" className="flex flex-col h-full justify-between ">
       <div>
-      <h2 className="text-Primary-Blue font-semibold text-2xl  ">Lengkapi alamat</h2>
-      <p className="text-sm text-Text-Black w-3/4 mb-5">Sebelum membeli atau menjual produk, isi biodata dan alamat kamu dulu yuk!</p>
+      <h2 className="text-Primary-Blue font-semibold text-2xl font-Poppins  ">Lengkapi alamat</h2>
+      <p className="text-sm text-Text-Black font-Poppins w-3/4 mb-5">Sebelum membeli atau menjual produk, isi biodata dan alamat kamu dulu yuk!</p>
         <section>
         <InputField type={"number"} name={"Email"} value={input.Email} onChange={handleChange} placeholder={"0821xxxxxxxx"} error={errors.Email}>
             Nomor Telepon
@@ -108,7 +108,7 @@ const Verifikasi = () => {
         </section>
       </div>
 
-       <button type="submit" className="btn bg-Primary-Blue active:bg-opacity-75 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
+       <button type="submit" className="btn bg-Primary-Blue font-Poppins border-0 active:bg-opacity-75 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
           Simpan Alamat
         </button>
        

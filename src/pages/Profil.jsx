@@ -80,10 +80,10 @@ const Profil = () => {
             <Icon className="text-Primary-Blue text-2xl" icon="iconamoon:notification-fill" />
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-sm">Admin telah menghapus postingan anda karena telah melanggar user guideline</p>
+            <p className="text-sm text-Text-Black">Admin telah menghapus postingan anda karena telah melanggar user guideline</p>
             <div className="flex gap-4">
-              <p className="text-sm font-medium">12/04/24</p>
-              <p className="text-sm font-medium">20.54</p>
+              <p className="text-sm text-Text-Black font-medium">12/04/24</p>
+              <p className="text-sm text-Text-Black font-medium">20.54</p>
             </div>
           </div>
         </div>
@@ -92,10 +92,10 @@ const Profil = () => {
             <Icon className="text-Primary-Blue text-2xl" icon="iconamoon:notification-fill" />
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-sm">Produk anda berhasil ditambahkan ke etalase Temu Preloved</p>
+            <p className="text-sm text-Text-Black">Produk anda berhasil ditambahkan ke etalase Temu Preloved</p>
             <div className="flex gap-4">
-              <p className="text-sm font-medium">12/04/24</p>
-              <p className="text-sm font-medium">20.54</p>
+              <p className="text-sm text-Text-Black font-medium">12/04/24</p>
+              <p className="text-sm text-Text-Black font-medium">20.54</p>
             </div>
           </div>
         </div>
@@ -104,16 +104,16 @@ const Profil = () => {
             <Icon className="text-Primary-Blue text-2xl" icon="iconamoon:notification-fill" />
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-sm">Produk anda berhasil diboosting</p>
+            <p className="text-sm text-Text-Black">Produk anda berhasil diboosting</p>
             <div className="flex gap-4">
-              <p className="text-sm font-medium">12/04/24</p>
-              <p className="text-sm font-medium">20.54</p>
+              <p className="text-sm text-Text-Black font-medium">12/04/24</p>
+              <p className="text-sm text-Text-Black font-medium">20.54</p>
             </div>
           </div>
         </div>
       </section>
       <section className="w-full flex flex-col gap-4">
-        <button className="text-[0.625rem] btn w-full  justify-between  bg-Primary-Blue hover:bg-Primary-Purple active:bg-opacity-75 ease-in-out duration-200   text-Primary-White">
+        <button className="text-[0.625rem] btn w-full  justify-between border-0  bg-Primary-Blue hover:bg-Primary-Purple active:bg-opacity-75 ease-in-out duration-200   text-Primary-White">
           <div className="flex  gap-4 items-center">
             <Icon icon="gg:list" className="text-xl" />
             <p className="text-Primary-LightBlue text-sm">Postingan Saya</p>
