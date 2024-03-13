@@ -32,10 +32,10 @@ const Login = () => {
     reset()
     
   
-    if (!input.Email.endsWith("@ub.ac.id")) {
+    if (!input.Email.endsWith("ub.ac.id")) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        Email: "Email harus menggunakan domain @ub.ac.id",
+        Email: "Email harus menggunakan domain ub.ac.id",
       }));
       setIsValid(false)
     }

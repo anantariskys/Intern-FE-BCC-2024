@@ -43,10 +43,10 @@ const Register = () => {
   const handleSubmit = (e) => {
     setIsValid(true)
     e.preventDefault();
-    if (!input.Email.endsWith("@ub.ac.id")) {
+    if (!input.Email.endsWith("ub.ac.id")) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        Email: "Email harus menggunakan domain @ub.ac.id",
+        Email: "Email harus menggunakan domain ub.ac.id",
       }));
       setIsValid(false)
     }
