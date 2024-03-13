@@ -118,9 +118,7 @@ const TambahPreloved = () => {
                 Deskripsi
             </span>
         </label>
-        <textarea className="textarea textarea-bordered bg-transparent text-xs  h-48 text-Text-Placeholder" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"></textarea>
+        <textarea className="textarea textarea-bordered bg-transparent text-xs  h-48 text-Text-Black" placeholder="Tambah deskripsi barangmu disini..."></textarea>
     </div>
           <p className="text-base font-semibold text-Primary-Blue mb-3">Detail</p>
           <DropdownSelect placeHolder={'Pilih Kategori'} option={kategori}>Kategori</DropdownSelect>
@@ -133,7 +131,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor">
           </InputField>
         </section>
 
-        <button type="submit" className="btn bg-Primary-Blue active:bg-opacity-75 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
+        <button type="submit" className="btn bg-Primary-Blue active:bg-opacity-75 border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
           Tambah
         </button>
       </form>

@@ -34,7 +34,7 @@ function DropdownSelect({children,placeHolder,option,}) {
         <div
           className={`${
             isOpen ? 'block' : 'hidden'
-          } origin-top-right absolute right-0 mt-1 w-full rounded-lg shadow-lg bg-base-100 z-10`}
+          } origin-top-right absolute right-0 mt-1 w-full rounded-lg shadow-lg bg-Primary-White z-10`}
         >
           <ul
          
@@ -43,7 +43,7 @@ function DropdownSelect({children,placeHolder,option,}) {
             {option.map((option, index) => (
               <li
                 key={index}
-                className="cursor-pointer  py-3 px-4 text-sm font-medium text-Text-Black hover:bg-gray-100 rounded-lg "
+                className="cursor-pointer  py-3 px-4 text-sm font-medium text-Text-Black bg-Primary-White rounded-lg "
                 onClick={() => handleSelectOption(option)}
               >
                 {option}
