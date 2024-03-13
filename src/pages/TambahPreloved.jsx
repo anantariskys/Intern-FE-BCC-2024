@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logoGoggle from "../../public/logoGoggle.png";
+import DropdownSelect from "../components/DropdownSelect";
 import InputField from "../components/InputField";
 
 const TambahPreloved = () => {
@@ -79,6 +80,13 @@ const TambahPreloved = () => {
       console.log(error);
     }
   };
+  
+  const kategori =[
+    "Pendidikan","Fashion","Perlengkapan Kos","Gadget","Hobi"
+  ]
+  const kondisi =[
+    ">90%","88%-95%","80%-87%","70%-79%","<70%"
+  ]
 
   return (
     <div className="bg-Primary-LightBlue font-Poppins w-full py-6 flex flex-col  px-4">
@@ -101,25 +109,32 @@ const TambahPreloved = () => {
             <div className="w-[31%] aspect-square object-cover border border-Outline-gray rounded-lg"></div>
           </div>
 
-          <InputField type={"text"} name={"Email"} labelSize={"text-base font-semibold"} mb={"mb-8"} value={input.Email} onChange={handleChange} placeholder={"cth. Macbook Air"} error={errors.Email}>
+          <InputField type={"text"} name={"Email"} labelSize={"text-base font-semibold"} mb={"mb-8"}  onChange={handleChange} placeholder={"cth. Macbook Air"} error={errors.Email}>
             Nama Produk
           </InputField>
-          <InputField type={"text"} name={"Password"} mb="mb-8" labelSize={"text-sm font-semibold"} className={"h-48"} value={input.Password} onChange={handleChange} placeholder={"masukkan kata sandi"} error={errors.Password}>
-            Deskripsi
-          </InputField>
+          <div className={`form-control mb-8 `}>
+        <label className="label ">
+            <span className={`label-text text-Primary-Blue  font-medium`}>
+                Deskripsi
+            </span>
+        </label>
+        <textarea className="textarea textarea-bordered bg-transparent text-xs  h-48 text-Text-Placeholder" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"></textarea>
+    </div>
           <p className="text-base font-semibold text-Primary-Blue mb-3">Detail</p>
-          <p className="text-sm font-semibold text-Primary-Blue mb-3">Kategori</p>
-          <details >
-      <summary className="menu bg-base-200 w-56 rounded-box">Parent</summary>
-      <ul>
-        <li><a>Submenu 1</a></li>
-        <li><a>Submenu 2</a></li>
-      </ul>
-    </details>
+          <DropdownSelect placeHolder={'Pilih Kategori'} option={kategori}>Kategori</DropdownSelect>
+          <DropdownSelect placeHolder={'Pilih Kondisi'} option={kondisi}>Kondisi</DropdownSelect>
+          <InputField type={"text"} name={"Email"} labelSize={"font-semibold"} mb={"mb-8"} onChange={handleChange} placeholder={"Jl. Sigura gura V Blok H1 No.3, Lowokwaru, Malang"} error={errors.Email}>
+            Alamat Lengkap
+          </InputField>
+          <InputField type={"text"} name={"Email"} labelSize={"text-base font-semibold"} mb={"mb-8"}  onChange={handleChange} placeholder={"Rp 0.00"} error={errors.Email}>
+            Harga
+          </InputField>
         </section>
 
         <button type="submit" className="btn bg-Primary-Blue active:bg-opacity-75 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
-          Simpan Alamat
+          Tambah
         </button>
       </form>
     </div>

@@ -39,21 +39,15 @@ const Login = () => {
       }));
       setIsValid(false)
     }
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
-    if (!passwordRegex.test(input.Password)) {
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&]{8,}$/;
+    if (!passwordRegex.test(input.Password || input.Password.length <= 8)) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        Password: "Password harus kompleks",
+        Password: "Kata sandi setidaknya mengandung 1 Uppercase, 1 Lowercase, 1 Angka & Minimal 8 karakter",
       }));
       setIsValid(false)
     }
-    if (input.Password.length <= 8) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        Username: "Password harus lebih dari 8 karakter",
-      }));
-      setIsValid(false)
-    }
+ 
 
     if (isValid) {
       login()
@@ -93,7 +87,7 @@ const Login = () => {
 
       <form onSubmit={handleSubmit} action="" className="flex flex-col h-full justify-center ">
       <h2 className="text-Primary-Blue font-semibold text-2xl  ">Masuk dulu yuk!</h2>
-      <p className="text-sm text-Text-Black w-3/4 mb-5">Biar kamu bisa gunain semua fitur yang ada di BRAW!</p>
+      <p className="text-sm text-Text-Black w-3/4 mb-8">Biar kamu bisa gunain semua fitur yang ada di BRAW!</p>
         <section>
         <InputField type={"email"} name={"Email"} value={input.Email} onChange={handleChange} placeholder={"dahlan@student.ub.ac.id (Emaill UB)"} error={errors.Email}>
             Email UB
@@ -101,12 +95,12 @@ const Login = () => {
           <InputField type={"password"} name={"Password"} value={input.Password} onChange={handleChange} placeholder={"masukkan kata sandi"} error={errors.Password}>
             Kata Sandi
           </InputField>
-        <div className="flex w-2/4 gap-2 mx-auto items-center">
+        <div className="flex w-2/4 gap-2 mx-auto items-center mt-8">
             <hr className="border-Text-Placeholder w-full" />
             <p>atau</p>
             <hr className="border-Text-Placeholder w-full" />
         </div>
-        <img src={logoGoggle} draggable='false' loading="lazy" className="mx-auto w-1/6 aspect-auto mb-5 mt-2" />
+        <img src={logoGoggle} draggable='false' loading="lazy" className="mx-auto w-1/6 aspect-auto mb-5 mt-4" />
         </section>
 
        <div className='"  w-full flex flex-col items-center'>
@@ -114,7 +108,7 @@ const Login = () => {
           Daftar
         </button>
         <p className="text-base text-Text-Black mx-auto">
-          Belum punya akun?<Link to={'/register'}><span className="text-Primary-Blue font-semibold">Daftar.</span></Link>
+          Belum punya akun?<Link to={'/register'}><span className="text-Primary-Blue font-bold"> Daftar.</span></Link>
         </p>
        </div>
       </form>

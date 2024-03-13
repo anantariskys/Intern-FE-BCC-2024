@@ -57,18 +57,11 @@ const Register = () => {
       }));
       setIsValid(false)
     }
-    if (input.Password.length <= 8) {
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&]{8,}$/;
+    if (!passwordRegex.test(input.Password || input.Password.length <= 8)) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        Username: "Password harus lebih dari 8 karakter",
-      }));
-      setIsValid(false)
-    }
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
-    if (!passwordRegex.test(input.Password)) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        Password: "Password harus kompleks",
+        Password: "Password Minimal mengandung 1 Uppercase, 1 Lowercase, 1 Angka & Minimal 8 karakter",
       }));
       setIsValid(false)
     }
@@ -116,12 +109,12 @@ const Register = () => {
             Kata Sandi
           </InputField>
 
-          <div className="flex w-2/4 gap-2 mx-auto items-center">
+          <div className="flex w-2/4 gap-2 mx-auto items-center mt-8">
             <hr className="border-Text-Placeholder w-full" />
             <p>atau</p>
             <hr className="border-Text-Placeholder w-full" />
           </div>
-          <img src={logoGoggle} draggable="false" loading="lazy" className="mx-auto w-1/6 aspect-auto mb-5 mt-2" />
+          <img src={logoGoggle} draggable="false" loading="lazy" className="mx-auto w-1/6 aspect-auto mb-5 mt-4" />
         </section>
 
         <div className="  w-full flex flex-col items-center">
@@ -129,7 +122,7 @@ const Register = () => {
             Daftar
           </button>
           <p className="text-base text-Text-Black mx-auto">
-            Sudah punya akun?<Link to={'/login'}><span className="text-Primary-Blue font-semibold">Masuk.</span></Link> 
+            Sudah punya akun?<Link to={'/login'}><span className="text-Primary-Blue font-bold"> Masuk.</span></Link> 
           </p>
         </div>
       </form>

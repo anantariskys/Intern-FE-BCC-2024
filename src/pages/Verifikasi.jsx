@@ -96,14 +96,14 @@ const Verifikasi = () => {
       <h2 className="text-Primary-Blue font-semibold text-2xl  ">Lengkapi alamat</h2>
       <p className="text-sm text-Text-Black w-3/4 mb-5">Sebelum membeli atau menjual produk, isi biodata dan alamat kamu dulu yuk!</p>
         <section>
-        <InputField type={"email"} name={"Email"} value={input.Email} onChange={handleChange} placeholder={"dahlan@student.ub.ac.id (Emaill UB)"} error={errors.Email}>
-            Email UB
+        <InputField type={"number"} name={"Email"} value={input.Email} onChange={handleChange} placeholder={"0821xxxxxxxx"} error={errors.Email}>
+            Nomor Telepon
           </InputField>
-          <InputField type={"passwor"} name={"Password"} value={input.Password} onChange={handleChange} placeholder={"masukkan kata sandi"} error={errors.Password}>
-            Kata Sandi
+          <InputField type={"text"} name={"Password"} value={input.Password} onChange={handleChange} placeholder={"Jl. Sigura gura V Blok H1 No.3, Lowokwaru, Malang"} error={errors.Password}>
+            Alamat Lengkap
           </InputField>
-          <InputField type={"password"} name={"Password"} value={input.Password} onChange={handleChange} placeholder={"masukkan kata sandi"} error={errors.Password}>
-            Kata Sandi
+          <InputField type={"text"} name={"Password"} value={input.Password} onChange={handleChange} placeholder={"cth. blok atau patokan"} error={errors.Password}>
+            Detail Lainnya  (opsional)
           </InputField>
         </section>
       </div>
