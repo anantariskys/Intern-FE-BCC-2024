@@ -11,6 +11,7 @@ import PrelovedDetail from "../pages/PrelovedDetail";
 import PageLayout from "../components/layout/PageLayout";
 import Verifikasi from "../pages/Verifikasi";
 import TambahPreloved from "../pages/TambahPreloved";
+import Jastip from "../pages/Jastip";
 const createRouter = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,11 @@ const createRouter = createBrowserRouter([
   {
     path: "/preloved/:id",
     element: <PageLayout>< PrelovedDetail/></PageLayout>,
+    
+  },
+  {
+    path: "/jastip",
+    element: <PageLayout><Jastip /></PageLayout>,
     
   },
   {
