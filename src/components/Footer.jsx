@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="w-full py-9 flex gap-9 flex-col justify-center font-Poppins  bg-Primary-Blue ">
       <div className="flex flex-col gap-4 items-center">
-        <h3 className="text-sm bg-Primary-White bg-opacity-40 py-1 px-3 text-Text-Black  rounded-2xl">🧑‍💻 Butuh bantuan?</h3>
+        <h3 className="text-sm bg-Primary-White bg-opacity-40 py-1 font-bold px-3 text-Text-Black  rounded-2xl">🧑‍💻 Butuh bantuan?</h3>
         <button className="px-4 py-2 btn text-base hover:bg-Secondary-LightTeal border-0 duration-300 ease-in-out active:bg-Secondary-LightTeal bg-Primary-White text-Primary-Blue">Hubungi customer service</button>
       </div>
       <div className="flex flex-col gap-4 items-center">

@@ -89,7 +89,7 @@ const Home = () => {
         <section className="px-4 font-Poppins pt-8 mb-8">
           <div className="flex items-center justify-between mb-4 ">
             <h2 className="text-base font-semibold bg-Secondary-LightYellow bg-opacity-50 text-Text-Black py-1 px-3 rounded-2xl">😍 Barang Preloved terfavorit</h2>
-            <Link to={'/preloved'}><p className="text-xs text-Primary-Blue text-center">Selengkapnya</p></Link>
+            <Link to={'/preloved'}><p className="text-xs text-Primary-Blue text-center hover:underline underline-offset-1">Selengkapnya</p></Link>
           </div>
           <Splide
             options={{
@@ -156,7 +156,7 @@ const Home = () => {
         <section className="px-4 font-Poppins mt-8 mb-8">
           <div className="flex items-center justify-between mb-4 ">
             <h2 className="text-base font-semibold bg-Secondary-LightYellow bg-opacity-50 text-Text-Black py-1 px-3 rounded-2xl">😉 Mau nitip apa hari ini?</h2>
-            <p className="text-xs text-Primary-Blue text-center">Selengkapnya</p>
+            <p className="text-xs text-Primary-Blue text-center hover:underline underline-offset-1">Selengkapnya</p>
           </div>
           <div className="flex flex-col gap-4">
             {dumm1.map((item, index) => (
@@ -169,7 +169,7 @@ const Home = () => {
                   </div>
                   <div className="flex justify-between items-end gap-2">
                     <p className="text-xs font-normal text-Text-Black">{item.closeOrder}</p>
-                    <button className="text-[0.625rem] btn btn-xs hover:bg-Primary-Purple ease-in-out duration-200  bg-Primary-Blue text-Primary-White">
+                    <button className="text-[0.625rem] btn btn-xs hover:bg-Primary-Purple ease-in-out duration-200 border-0  bg-Primary-Blue text-Primary-White">
                       Selengkapnya
                       <span>
                         <Icon icon="ooui:next-ltr" />
@@ -184,7 +184,7 @@ const Home = () => {
         <section className="px-4 font-Poppins mt-8 mb-8">
           <div className="flex items-center justify-between mb-4 ">
             <h2 className="text-base font-semibold bg-Secondary-LightYellow bg-opacity-50 text-Text-Black py-1 px-3 rounded-2xl">🤩 Temukan jasa di BRAW!</h2>
-            <p className="text-xs text-Primary-Blue text-center">Selengkapnya</p>
+            <p className="text-xs text-Primary-Blue text-center hover:underline underline-offset-1">Selengkapnya</p>
           </div>
           <div className="flex flex-col gap-4">
             {dummy2.map((item, index) => (
@@ -196,7 +196,7 @@ const Home = () => {
                   <h3 className="text-base font-semibold text-Text-Black line-clamp-1">{item.name}</h3>
                   <div className="flex  w-full  justify-between">
                     <p className="font-medium text-xs px-3 py-px flex text-Text-Black  justify-center items-center bg-Secondary-LightTeal rounded-2xl">{item.price}</p>
-                    <button className="text-[0.625rem] btn btn-xs hover:bg-Primary-Purple ease-in-out duration-200  bg-Primary-Blue text-Primary-White">
+                    <button className="text-[0.625rem] btn btn-xs hover:bg-Primary-Purple ease-in-out border-0 duration-200  bg-Primary-Blue text-Primary-White">
                       Selengkapnya
                       <span>
                         <Icon icon="ooui:next-ltr" />
