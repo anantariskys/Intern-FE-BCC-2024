@@ -156,7 +156,9 @@ const Home = () => {
         <section className="px-4 font-Poppins mt-8 mb-8">
           <div className="flex items-center justify-between mb-4 ">
             <h2 className="text-base font-semibold bg-Secondary-LightYellow bg-opacity-50 text-Text-Black py-1 px-3 rounded-2xl">😉 Mau nitip apa hari ini?</h2>
+            <Link to={'/jastip'}>
             <p className="text-xs text-Primary-Blue text-center hover:underline underline-offset-1">Selengkapnya</p>
+            </Link>
           </div>
           <div className="flex flex-col gap-4">
             {dumm1.map((item, index) => (

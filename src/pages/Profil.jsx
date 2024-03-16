@@ -4,36 +4,23 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { getProfile } from "../api/services/auth";
 
 const Profil = () => {
-  const [data,setData] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchProfil = async () => {
       try {
-        const token = localStorage.getItem('token'); 
-        const response = await axios.get('http://localhost:8080/api/v1/login-user', {
-          headers: {
-            'Authorization': `Bearer ${token}` 
-          }
-        });
-        console.log(response.data.data);
-        setData(response.data.data)
+        const response = await getProfile()
+        setData(response);
       } catch (error) {
         console.log(error);
       }
-    }
-    fetchProfil()
-    
+    };
+    fetchProfil();
+  }, []);
 
-
-
-
-    
-  
-   
-  }, [])
-  
   return (
     <div className="bg-Primary-LightBlue p-4 font-Poppins flex flex-col gap-8">
       <section className="flex flex-col justify-center items-center gap-3">
@@ -70,7 +57,7 @@ const Profil = () => {
             <Icon className="text-2xl text-Primary-Blue" icon="ion:location" />
             <h5 className="text-xs text-Primary-Blue">Alamat</h5>
           </div>
-          <p className="text-sm text-Text-Black">{data.alamat?data.alamat : '-'}</p>
+          <p className="text-sm text-Text-Black">{data.alamat ? data.alamat : "-"}</p>
         </div>
       </section>
       <section className="w-full p-4 flex-col flex gap-4 border border-Outline-gray rounded-2xl">
@@ -113,13 +100,50 @@ const Profil = () => {
         </div>
       </section>
       <section className="w-full flex flex-col gap-4">
-        <button className="text-[0.625rem] btn w-full  justify-between border-0  bg-Primary-Blue hover:bg-Primary-Purple active:bg-opacity-75 ease-in-out duration-200   text-Primary-White">
+        <Link to={'/profile/post'}>        <button className="text-[0.625rem] btn w-full  justify-between border-0  bg-Primary-Blue hover:bg-Primary-Purple active:bg-opacity-75 ease-in-out duration-200   text-Primary-White">
           <div className="flex  gap-4 items-center">
             <Icon icon="gg:list" className="text-xl" />
             <p className="text-Primary-LightBlue text-sm">Postingan Saya</p>
           </div>
+        </button>
+        </Link>
+
+        <Link to={"/profile/faq"}>
+          <button className="text-[0.625rem] btn w-full  justify-between border-0  bg-Primary-Blue hover:bg-Primary-Purple active:bg-opacity-75 ease-in-out duration-200   text-Primary-White">
+            <div className="flex  gap-4 items-center">
+              <Icon icon="ph:question-fill" className="text-xl" />
+              <p className="text-Primary-LightBlue text-sm">Frequently Asked Question</p>
+            </div>
           </button>
-          </section>
-          </div>)}
+        </Link>
+        <button
+          onClick={() => document.getElementById("my_modal_1").showModal()}
+          className="text-[0.625rem] btn w-full  justify-between border-0  bg-Primary-Blue hover:bg-Primary-Purple active:bg-opacity-75 ease-in-out duration-200   text-Primary-White"
+        >
+          <div className="flex  gap-4 items-center">
+            <Icon icon="material-symbols:logout" className="text-xl" />
+            <p className="text-Primary-LightBlue text-sm">Logout</p>
+          </div>
+        </button>
+      <dialog id="my_modal_1" className="modal ">
+        <div className="modal-box bg-Primary-LightBlue flex items-center flex-col gap-8 p-4">
+          <Icon icon={"material-symbols:logout"} className="text-Primary-Blue text-8xl"/>
+          <h3 className="font-bold text-2xl text-Primary-Blue">Yakin ingin keluar?</h3>
+          <div className="modal-action flex w-full gap-4  justify-center">
+            <form method="dialog" className="w-full">
+              <button className="btn border-0 bg-Primary-Blue text-base font-semibold hover:bg-Primary-Purple duration-300 ease-in-out active:bg-opacity-75 text-Primary-LightBlue w-full">Tidak</button>
+            </form>
+              <button className="btn border bg-Primary-LightBlue  text-base font-semibold hover:bg-Secondary-LightTeal duration-300 ease-in-out text-Primary-Blue border-Outline-gray w-1/2 ">Logout</button>
+            
+           
+          </div>
+        </div>
+      </dialog>
+      </section>
+
+  
+    </div>
+  );
+};
 
 export default Profil;

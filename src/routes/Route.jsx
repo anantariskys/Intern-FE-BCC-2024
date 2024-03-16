@@ -12,6 +12,13 @@ import PageLayout from "../components/layout/PageLayout";
 import Verifikasi from "../pages/Verifikasi";
 import TambahPreloved from "../pages/TambahPreloved";
 import Jastip from "../pages/Jastip";
+import JastipDetail from "../pages/JastipDetail";
+import TambahJastip from "../pages/TambahJastip";
+import FAQ from "../pages/FAQ";
+import MyPost from "../pages/MyPost";
+import AntarJemput from "../pages/AntarJemput";
+import Komunitas from "../pages/Komunitas";
+import KomunitasDetail from "../pages/KomunitasDetail";
 const createRouter = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +41,26 @@ const createRouter = createBrowserRouter([
     
   },
   {
+    path: "/jastip/:id",
+    element: <PageLayout><JastipDetail /></PageLayout>,
+    
+  },
+  {
+    path: "/antarJemput",
+    element: <PageLayout><AntarJemput /></PageLayout>,
+    
+  },
+  {
+    path: "/komunitas",
+    element: <PageLayout><Komunitas /></PageLayout>,
+    
+  },
+  {
+    path: "/komunitas/:id",
+    element: <PageLayout><KomunitasDetail /></PageLayout>,
+    
+  },
+  {
     path:'/',
     element: <PrivateRoute />,
     children: [
@@ -42,12 +69,24 @@ const createRouter = createBrowserRouter([
         element: <PageLayout><Profil/></PageLayout>,
       },
       {
+        path: "profile/faq",
+        element: <PageLayout><FAQ/></PageLayout>,
+      },
+      {
+        path: "profile/post",
+        element: <PageLayout><MyPost/></PageLayout>,
+      },
+      {
         path: "verifikasi",
         element:  <Verifikasi/>,
       },
       {
         path: "/preloved/add",
         element: <PageLayout> <TambahPreloved/></PageLayout>,
+      },
+      {
+        path: "/jastip/add",
+        element: <PageLayout> <TambahJastip/></PageLayout>,
       },
     ],
   },

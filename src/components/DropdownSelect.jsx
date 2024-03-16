@@ -1,11 +1,9 @@
 import { Icon } from '@iconify/react';
 import React, { useState } from 'react';
 
-function DropdownSelect({children,placeHolder,option,}) {
+function DropdownSelect({ children, placeHolder, option, onSelect }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
-
-  
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -14,6 +12,7 @@ function DropdownSelect({children,placeHolder,option,}) {
   const handleSelectOption = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
+    onSelect(option); 
   };
 
   return (
@@ -25,28 +24,27 @@ function DropdownSelect({children,placeHolder,option,}) {
           className="mb-1 flex items-center justify-between input w-full input-bordered bg-transparent text-xs text-Text-Placeholder"
           onClick={handleToggle}
         >
-          {selectedOption || placeHolder} 
+          {selectedOption || placeHolder}
           <span>
-           <Icon icon="ep:arrow-up-bold" className={`${isOpen?'rotate-0':'rotate-180'} duration-150 ease-in-out`}/>
-            </span> 
-
+            <Icon
+              icon="ep:arrow-up-bold"
+              className={`${isOpen ? 'rotate-0' : 'rotate-180'} duration-150 ease-in-out`}
+            />
+          </span>
         </button>
         <div
           className={`${
             isOpen ? 'block' : 'hidden'
           } origin-top-right absolute right-0 mt-1 w-full rounded-lg shadow-lg bg-Primary-White z-10`}
         >
-          <ul
-         
-            role="menu"
-          >
-            {option.map((option, index) => (
+          <ul role="menu">
+            {option.map((opt, index) => (
               <li
                 key={index}
                 className="cursor-pointer  py-3 px-4 text-sm font-medium text-Text-Black bg-Primary-White rounded-lg "
-                onClick={() => handleSelectOption(option)}
+                onClick={() => handleSelectOption(opt)}
               >
-                {option}
+                {opt}
               </li>
             ))}
           </ul>

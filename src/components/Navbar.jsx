@@ -7,7 +7,7 @@ const Navbar = () => {
 
   
   return (
-    <nav className="w-full flex justify-between px-4 py-5 items-center bg-Primary-LightBlue border-b border-Outline-gray">
+    <nav className="w-full flex justify-between px-4 sticky top-0 z-40 py-5 items-center bg-Primary-LightBlue border-b border-Outline-gray">
       <Link to={'/'}><h3 className="text-xl font-bold text-Primary-Blue font-Oswald ">BRAW!</h3></Link>
 
         

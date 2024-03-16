@@ -8,7 +8,7 @@ import { createPreloved } from "../api/services/preloved";
 import DropdownSelect from "../components/DropdownSelect";
 import InputField from "../components/InputField";
 
-const TambahPreloved = () => {
+const TambahJastip = () => {
   const [input, setInput] = useState({
     Title: "",
     Category: "",
@@ -63,46 +63,28 @@ const TambahPreloved = () => {
     }));
   };
 
-  const handleConditionSelect = (condition) => {
-    setInput((prevInput) => ({
-      ...prevInput,
-      Condition: condition,
-    }));
-  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-
     console.log(input)
-    addPreloved()
-
-   
+    addJastip()
   };
 
  
-  const addPreloved = async () => {
-    try {
-      
-      const response = await createPreloved(input)
-      console.log(response.data);
-      navigate("/preloved");
-    } catch (error) {
-      console.log(error);
-    }
+  const addJastip = async () => {
+   
   };
   
   const kategori =[
-    "Pendidikan","Fashion","Perlengkapan Kos","Gadget","Hobi"
+    "Makanan","Barang"
   ]
-  const kondisi =[
-    ">90%","88%-95%","80%-87%","70%-79%","<70%"
-  ]
+ 
 
   return (
     <div className="bg-Primary-LightBlue font-Poppins w-full py-6 flex flex-col  px-4">
       <form onSubmit={handleSubmit} action="" className="flex flex-col h-full  justify-between ">
-        <h2 className="text-Primary-Blue font-semibold text-2xl w-3/4 mb-8">Tambah Barang Prelovedmu</h2>
+        <h2 className="text-Primary-Blue font-semibold text-2xl w-3/4 mb-8">Tambah Jastip</h2>
         <section>
           <p className="text-base font-semibold text-Primary-Blue mb-3">Foto</p>
           <div className="flex mb-8 items-center justify-between flex-wrap gap-y-3 w-full">
@@ -120,8 +102,8 @@ const TambahPreloved = () => {
             <div className="w-[31%] aspect-square object-cover border border-Outline-gray rounded-lg"></div>
           </div>
 
-          <InputField type={"text"} name={"Title"} labelSize={"text-base font-semibold"} mb={"mb-8"}  onChange={handleChange} placeholder={"cth. Macbook Air"} >
-            Nama Produk
+          <InputField type={"text"} name={"Title"} labelSize={"text-base font-semibold"} mb={"mb-8"}  onChange={handleChange} placeholder={"cth. Ayam Geprek"} >
+            Nama Jastip
           </InputField>
           <div className={`form-control mb-8 `}>
         <label className="label ">
@@ -133,9 +115,12 @@ const TambahPreloved = () => {
     </div>
           <p className="text-base font-semibold text-Primary-Blue mb-3">Detail</p>
           <DropdownSelect placeHolder={'Pilih Kategori'} onSelect={handleCategorySelect} option={kategori}>Kategori</DropdownSelect>
-          <DropdownSelect placeHolder={'Pilih Kondisi'} onSelect={handleConditionSelect} option={kondisi}>Kondisi</DropdownSelect>
-          <InputField type={"text"} name={"Alamat"} labelSize={"font-semibold"} mb={"mb-8"} placeholder={"Jl. Sigura gura V Blok H1 No.3, Lowokwaru, Malang"} >
-            Alamat Lengkap
+          
+          <InputField type={"text"} name={"Hari_Buka"} labelSize={"font-semibold"} mb={"mb-8"} placeholder={"Senin - Jumat"} >
+            Hari Buka
+          </InputField>
+          <InputField type={"text"} name={"CloseOrder"} labelSize={"font-semibold"} mb={"mb-8"} placeholder={"21.00"} >
+            Jam Tutup Order
           </InputField>
           <InputField type={"text"} name={"Price"} labelSize={"text-base font-semibold"} mb={"mb-8"}  onChange={handleChange} placeholder={"Rp 0.00"} >
             Harga
@@ -150,4 +135,4 @@ const TambahPreloved = () => {
   );
 };
 
-export default TambahPreloved;
+export default TambahJastip;

@@ -1,112 +1,39 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import { getAllPreloved } from '../api/services/preloved';
 
-const prelove = [
-    {
-      id: 1,
-      nama: "Buku Algoritma dan Struktur Data",
-      kategori: "Pendidikan",
-      image: "https://source.unsplash.com/random/900x700/?book",
-      kondisi: "90%",
-      countdown: 10,
-      price: "Rp 89.000",
-    },
-    {
-      id: 2,
-      nama: "Buku Algoritma dan Struktur Data",
-      kategori: "Gadget",
-      image: "https://source.unsplash.com/random/900x700/?macbook",
-      kondisi: "95%",
-      countdown: 3,
-      price: "Rp 13.399.000",
-    },
-    {
-      id: 3,
-      nama: "Buku Pemrograman Python",
-      kategori: "Pendidikan",
-      image: "https://source.unsplash.com/random/900x700/?python",
-      kondisi: "80%",
-      countdown: 5,
-      price: "Rp 120.000",
-    },
-    {
-      id: 4,
-      nama: "Smartphone Samsung Galaxy S20",
-      kategori: "Gadget",
-      image: "https://source.unsplash.com/random/900x700/?samsung",
-      kondisi: "85%",
-      countdown: 7,
-      price: "Rp 7.500.000",
-    },
-    {
-      id: 5,
-      nama: "Keyboard Mechanical Gaming",
-      kategori: "Gadget",
-      image: "https://source.unsplash.com/random/900x700/?keyboard",
-      kondisi: "98%",
-      countdown: 1,
-      price: "Rp 1.500.000",
-    },
-    {
-      id: 6,
-      nama: "Mouse Gaming RGB",
-      kategori: "Gadget",
-      image: "https://source.unsplash.com/random/900x700/?mouse",
-      kondisi: "95%",
-      countdown: 4,
-      price: "Rp 500.000",
-    },
-    {
-      id: 7,
-      nama: "Kamera Mirrorless Sony A7III",
-      kategori: "Gadget",
-      image: "https://source.unsplash.com/random/900x700/?camera",
-      kondisi: "90%",
-      countdown: 2,
-      price: "Rp 25.000.000",
-    },
-    {
-      id: 8,
-      nama: "Laptop ASUS ROG",
-      kategori: "Gadget",
-      image: "https://source.unsplash.com/random/900x700/?laptop",
-      kondisi: "85%",
-      countdown: 6,
-      price: "Rp 20.000.000",
-    },
-    {
-      id: 9,
-      nama: "Monitor Gaming Curved",
-      kategori: "Gadget",
-      image: "https://source.unsplash.com/random/900x700/?monitor",
-      kondisi: "95%",
-      countdown: 8,
-      price: "Rp 5.000.000",
-    },
-  ];
-  
+import Card from "../components/Card";
+import HeaderCard from "../components/HeaderCard";
 
 const Preloved = () => {
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAllPreloved()
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const filteredData = data.filter(item =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <div className="bg-Primary-LightBlue">
-     
       <main className="w-full p-4">
-        <section className="w-full bg-gradient-to-r gap-6 flex flex-col rounded-2xl p-4 to-Primary-Blue from-Primary-Purple">
-          <div className="flex gap-4 items-center">
-            <p className="text-3xl aspect-square p-2 bg-Secondary-LightYellow bg-opacity-50 rounded-full">🤗</p>
-            <p className="text-base font-medium text-Primary-LightBlue">Punya barang tak terpakai? jual di sini aja!</p>
-          </div>
-          <div className="w-full flex justify-end">
-          <Link to={'/preloved/add'}>
-          <button className="px-4 py-2 btn text-base border-0 font-semibold bg-Primary-White duration-300 ease-in-out hover:bg-Secondary-LightTeal text-Primary-Blue">Mulai Jualan</button>
-          </Link>
-
-          </div>
-        </section>
-
+        <HeaderCard btnText={"Mulai Jualan"} to={"/preloved/add"} message={"Punya barang tak terpakai? jual di sini aja!"}  />
         <section className="w-full py-4 mb-8">
           <div className="flex items-center justify-between mb-4 ">
             <h2 className="text-lg font-semibold bg-Secondary-LightYellow text-Text-Black bg-opacity-50 py-1 px-3 rounded-2xl">😍 Temukan Preloved favoritmu!</h2>
@@ -116,33 +43,24 @@ const Preloved = () => {
           </div>
           <label className="input input-bordered bg-transparent flex items-center gap-2">
             <Icon icon="mdi:search" className="text-xl text-Outline-gray" />
-            <input type="text" className="grow bg-transparent text-Text-Black" placeholder="Search" />
+            <input type="text" className="grow bg-transparent text-Text-Black" placeholder="Search" value={searchTerm} onChange={handleSearchChange} />
           </label>
         </section>
-        <section className="w-full flex flex-wrap justify-center gap-4 ">
-          {prelove.map((item, index) => (
-            <Link to={`/preloved/${item.id}`}>
-              <div key={index} className="w-40 h-72 self-start p-3 border hover:bg-Primary-White duration-300 hover:shadow-2xl hover:-translate-y-1 ease-in-out flex flex-col justify-between border-Outline-gray rounded-2xl">
-                <div className="flex-col flex gap-2">
-                  <div>
-                    <h2 className="text-xs  text-Primary-White font-medium inline-block bg-gradient-to-r from-Primary-Purple to-Primary-Blue py-px px-4 rounded-2xl">{item.kategori}</h2>
-                  </div>
-                  <img src={item.image} className="w-full aspect-square rounded-lg" loading="lazy" alt="product-image" />
-                  <h2 className="text-xs text-Text-Black font-medium ">{item.nama}</h2>
-                  <div>
-                    <h2 className="text-xs text-Text-Black font-medium inline-block bg-Secondary-LightTeal py-px px-3 rounded-2xl">{item.price}</h2>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center">
-                  <p className="text-xs text-Text-Black  font-semibold">⭐ Kondisi {item.kondisi}</p>
-                  <p className="text-xs text-Text-Black font-light">{item.countdown} Hari</p>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </section>
+        {filteredData && !filteredData.length > 0 ? (
+          <section className="flex justify-center items-center">
+            <p className="">Tidak ada barang preloved</p>
+          </section>
+        ) : (
+          <section className="w-full grid grid-cols-2 place-items-center mx-auto gap-4 ">
+            {filteredData &&
+              filteredData.map((item, index) => (
+                <Link key={index} to={`/preloved/${item.id_preloved}`}>
+                  <Card countdown={item.countdown} type="preloved" image={item.image} kategori={item.category} kondisi={item.confition} nama={item.title} price={item.price} />
+                </Link>
+              ))}
+          </section>
+        )}
       </main>
-
     </div>
   );
 };

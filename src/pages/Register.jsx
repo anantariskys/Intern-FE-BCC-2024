@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logoGoggle from "../../public/logoGoggle.png";
+import { register } from "../api/services/auth";
 import InputField from "../components/InputField";
 
 const Register = () => {
@@ -18,9 +19,10 @@ const Register = () => {
     Email: "",
     Password: "",
   });
-  const navigate = useNavigate()
+  const navigate= useNavigate()
 
-  const [isValid,setIsValid] = useState(true)
+
+  const [isValid, setIsValid] = useState(true);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,66 +31,62 @@ const Register = () => {
       [name]: value,
     }));
   };
-  const register =async()=>{
+  const handleRegister = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/register',input)
-      console.log(response)
+      await register(input);
       navigate('/login')
-      
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const handleSubmit = (e) => {
-    setIsValid(true)
+    setIsValid(true);
+    reset()
     e.preventDefault();
     if (!input.Email.endsWith("ub.ac.id")) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         Email: "Email harus menggunakan domain ub.ac.id",
       }));
-      setIsValid(false)
+      setIsValid(false);
     }
     if (input.Username.length <= 6) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         Username: "Username harus lebih dari 6 karakter",
       }));
-      setIsValid(false)
+      setIsValid(false);
     }
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&]{8,}$/;
     if (!passwordRegex.test(input.Password || input.Password.length <= 8)) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        Password: "Password Minimal mengandung 1 Uppercase, 1 Lowercase, 1 Angka & Minimal 8 karakter",
+        Password: "Password Minimal mengandung 1 Kapital, 1 Lowercase, 1 Angka & Minimal 8 karakter",
       }));
-      setIsValid(false)
+      setIsValid(false);
     }
 
     if (isValid) {
-      register()
-    }
+      handleRegister();
     
-
-   
+    }
   };
-  const reset = ()=>{
-    setIsValid(true)
+  const reset = () => {
+    setIsValid(true);
     setInput({
       Name: "",
       Username: "",
       Email: "",
       Password: "",
-    })
+    });
     setErrors({
       Name: "",
       Username: "",
       Email: "",
       Password: "",
-    })
-    
-  }
+    });
+  };
 
   return (
     <div className="bg-Primary-LightBlue font-Poppins h-screen w-full py-6 flex flex-col px-4">
@@ -122,7 +120,10 @@ const Register = () => {
             Daftar
           </button>
           <p className="text-base text-Text-Black mx-auto">
-            Sudah punya akun?<Link to={'/login'}><span className="text-Primary-Blue font-bold"> Masuk.</span></Link> 
+            Sudah punya akun?
+            <Link to={"/login"}>
+              <span className="text-Primary-Blue font-bold"> Masuk.</span>
+            </Link>
           </p>
         </div>
       </form>

@@ -1,40 +1,42 @@
-import { Icon } from '@iconify/react'
-import { Splide, SplideSlide } from '@splidejs/react-splide'
-import React from 'react'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { getProfile } from "../api/services/auth";
+import { getPrelovedById } from "../api/services/preloved";
+
+import CardDetail from "../components/CardDetail";
+
+const dummy = {
+
+  photo: ["https://source.unsplash.com/random/900x700/?book", "https://source.unsplash.com/random/900x700/?books"],
+
+};
 
 const PrelovedDetail = () => {
+  const [data, setData] = useState([]);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async()=>{
+      try {
+        const response = await getPrelovedById(id)
+        setData(response)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData()
+  }, []);
+
   return (
     <div className="bg-Primary-LightBlue">
-     
       <main className="w-full p-4 font-Poppins">
-        <div className='border border-Outline-gray p-5 rounded-2xl'>
-            <Splide
-            options={{
-                gap:10,
-                arrows:false,
-                autoplay:true
-            }}
-
-            >
-                <SplideSlide>
-                    <img src="https://source.unsplash.com/random/900x700/?book" className='w-full mb-10 aspect-square object-cover rounded-lg' alt="image" loading='lazy' />
-                </SplideSlide>
-                <SplideSlide>
-                    <img src="https://source.unsplash.com/random/900x700/?books" className='w-full mb-10 aspect-square object-cover rounded-lg' alt="image" loading='lazy' />
-                </SplideSlide>
-            </Splide>
-            <h3 className='mt-4 text-base font-semibold text-Text-Black'>Buku Algoritma dan Struktur Data</h3>
-            <p className='text-xl font-medium px-4 bg-Secondary-LightTeal text-Text-Black inline-block rounded-2xl mt-4'>Rp 89.000</p>
-            <p className='text-sm mt-4 text-left text-Text-Black'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-            <button className='btn w-full mt-4 bg-Primary-Blue text-Primary-White hover:bg-Primary-Purple duration-300 ease-in-out'>Beli Sekarang <Icon icon='mingcute:whatsapp-line'/></button>
-        </div>
-    
+        <CardDetail desc={data.description} nama={data.title}  price={data.price} photo={dummy.photo} kategori={data.category} kondisi={data.confition} />
       </main>
- 
     </div>
-  )
-}
+  );
+};
 
-export default PrelovedDetail
+export default PrelovedDetail;
