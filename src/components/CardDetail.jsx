@@ -4,8 +4,8 @@ import React from "react";
 
 const CardDetail = ({ nama, price, desc, photo, kategori, kondisi, userFullName, closeOrder, open,link }) => {
   return (
-    <div className="border border-Outline-gray p-5 rounded-2xl">
-      <div>
+    <div className="border md:border-0 flex flex-col md:flex-row md:gap-5  border-Outline-gray p-5 rounded-2xl">
+      <div className="block md:hidden">
         <h2 className="text-xs  text-Primary-White font-medium inline-block bg-gradient-to-r from-Primary-Purple to-Primary-Blue py-px px-4 rounded-2xl mb-4">{kategori}</h2>
       </div>
       <Splide
@@ -14,14 +14,17 @@ const CardDetail = ({ nama, price, desc, photo, kategori, kondisi, userFullName,
           arrows: false,
           autoplay: true,
         }}
+       className='md:w-96'
       >
         {photo &&
           photo.map((item, index) => (
-            <SplideSlide key={index}>
-              <img src={item} className="w-full mb-10 aspect-square object-cover rounded-lg" alt="image" loading="lazy" />
+            <SplideSlide  key={index}>
+              <img src={item} className="w-full  md:w-96 mb-10 aspect-square object-cover rounded-lg" alt="image" loading="lazy" />
             </SplideSlide>
           ))}
       </Splide>
+      <div>
+        
       <h3 className="mt-4 text-base font-semibold text-Text-Black">{nama}</h3>
       {price && kondisi && (
         <div className="flex  justify-between items-center mt-4">
@@ -57,6 +60,7 @@ const CardDetail = ({ nama, price, desc, photo, kategori, kondisi, userFullName,
           </button>
         </div>
       )}
+      </div>
     </div>
   );
 };

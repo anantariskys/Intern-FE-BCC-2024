@@ -29,7 +29,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    reset();
+    setIsValid(true)
+  
 
     if (!input.Email.endsWith("ub.ac.id")) {
       setErrors((prevErrors) => ({
@@ -52,17 +53,7 @@ const Login = () => {
     }
   };
 
-  const reset = () => {
-    setIsValid(true);
-    setInput({
-      Email: "",
-      Password: "",
-    });
-    setErrors({
-      Email: "",
-      Password: "",
-    });
-  };
+
   const handleLogin = async () => {
     try {
       await login(input);
@@ -74,7 +65,7 @@ const Login = () => {
 
   return (
     <div className="bg-Primary-LightBlue font-Poppins h-screen w-full py-6 flex flex-col px-4">
-      <form onSubmit={handleSubmit} action="" className="flex flex-col h-full justify-center ">
+      <form onSubmit={handleSubmit} action="" className="flex flex-col h-full max-w-sm mx-auto justify-center ">
         <h2 className="text-Primary-Blue font-semibold text-2xl  ">Masuk dulu yuk!</h2>
         <p className="text-sm text-Text-Black w-3/4 mb-8">Biar kamu bisa gunain semua fitur yang ada di BRAW!</p>
         <section>
@@ -97,7 +88,7 @@ const Login = () => {
             type="submit"
             className="btn bg-Primary-Blue border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  active:bg-opacity-75 px-12 w-1/2 text-base font-semibold  hover:bg-Primary-Purple a duration-300 ease-in-out"
           >
-            Daftar
+            Login
           </button>
           <p className="text-base text-Text-Black mx-auto">
             Belum punya akun?

@@ -6,7 +6,7 @@ import coreApi from "../coreApi";
 const getAllPreloved = async () => {
   try {
     const response = await coreApi.get('/getallpreloved');
-    console.log(response.data);
+
     return response.data;
   } catch (error) {
     console.log(error);
@@ -24,11 +24,19 @@ const getPrelovedById = async (id) => {
         throw error
       }
 };
+const getPrelovedByUserId = async (id) => {
+    try {
+        const response = await coreApi.get(`/readprelovedbyuserid/${id}`)
+        return(response.data.data)
+      } catch (error) {
+        throw error
+      }
+};
 
 const createPreloved = async (form) => {
     try {
         const response = await coreApi.post("/preloved", form);
-        console.log(response.data);
+      
       } catch (error) {
         console.log(error);
         throw error
@@ -36,6 +44,22 @@ const createPreloved = async (form) => {
 };
 
 
+const deletePreloved = async(id)=>{
+  try {       
+     const token = localStorage.getItem('token'); 
+    const response = await coreApi.delete(`/delpreloved/${id}`, {
+      headers: {
+        'Authorization': `Bearer ${token}` 
+      }
+    })
+    console.log(response.data)
+    
+  } catch (error) {
+    throw error    
+  }
+}
 
 
-export { getAllPreloved,getPrelovedById,createPreloved };
+
+
+export { getAllPreloved,getPrelovedById,createPreloved,deletePreloved,getPrelovedByUserId };

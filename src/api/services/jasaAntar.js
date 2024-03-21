@@ -3,9 +3,9 @@ import coreApi from "../coreApi";
 
 
 
-const getAllJastip = async () => {
+const getAllJasaAntar = async () => {
   try {
-    const response = await coreApi.get('/getalljastip');
+    const response = await coreApi.get('/getalljasantar');
     console.log(response.data);
     return response.data;
   } catch (error) {
@@ -14,9 +14,9 @@ const getAllJastip = async () => {
   }
 };
 
-const getJastipById = async (id) => {
+const getJasaAntarById = async (id) => {
     try {
-        const response = await coreApi.get(`/readjastip/${id}`)
+        const response = await coreApi.get(`/readjasantar/${id}`)
         console.log(response.data.data)
         return(response.data.data)
       } catch (error) {
@@ -25,9 +25,9 @@ const getJastipById = async (id) => {
       }
 };
 
-const createJastip = async (form) => {
+const createJasaAntar = async (form) => {
     try {
-        const response = await coreApi.post("/jastip", form);
+        const response = await coreApi.post("/jasantar", form);
         console.log(response.data);
       } catch (error) {
         console.log(error);
@@ -36,10 +36,10 @@ const createJastip = async (form) => {
 };
 
 
-const deleteJastip = async(id)=>{
+const deleteJasaAntar = async(id)=>{
   try {       
      const token = localStorage.getItem('token'); 
-    const response = await coreApi.delete(`/deljastip/${id}`, {
+    const response = await coreApi.delete(`/deljasantar/${id}`, {
       headers: {
         'Authorization': `Bearer ${token}` 
       }
@@ -54,4 +54,4 @@ const deleteJastip = async(id)=>{
 
 
 
-export { getAllJastip,getJastipById,createJastip,deleteJastip };
+export { getAllJasaAntar,getJasaAntarById,createJasaAntar,deleteJasaAntar };

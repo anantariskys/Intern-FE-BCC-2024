@@ -42,7 +42,6 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     setIsValid(true);
-    reset()
     e.preventDefault();
     if (!input.Email.endsWith("ub.ac.id")) {
       setErrors((prevErrors) => ({
@@ -72,25 +71,11 @@ const Register = () => {
     
     }
   };
-  const reset = () => {
-    setIsValid(true);
-    setInput({
-      Name: "",
-      Username: "",
-      Email: "",
-      Password: "",
-    });
-    setErrors({
-      Name: "",
-      Username: "",
-      Email: "",
-      Password: "",
-    });
-  };
+
 
   return (
-    <div className="bg-Primary-LightBlue font-Poppins h-screen w-full py-6 flex flex-col px-4">
-      <form onSubmit={handleSubmit} className="flex flex-col h-full justify-center  ">
+    <div className="bg-Primary-LightBlue font-Poppins md:h-auto h-screen w-full py-6 flex flex-col px-4">
+      <form onSubmit={handleSubmit} className="flex flex-col h-full justify-center max-w-sm mx-auto   ">
         <h2 className="text-Primary-Blue font-semibold text-2xl  ">Buat Akun dulu yuk!</h2>
         <p className="text-sm text-Text-Black w-3/4 mb-5">Biar kamu bisa gunain semua fitur yang ada di BRAW!</p>
         <section>

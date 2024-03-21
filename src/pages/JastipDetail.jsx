@@ -20,7 +20,7 @@ const JastipDetail = () => {
   return (
     <div className="bg-Primary-LightBlue">
      
-    <main className="w-full p-4 font-Poppins">
+    <main className="w-full p-4 md:px-56 font-Poppins">
      
       <CardDetail closeOrder={dummy.closeOrder} desc={dummy.desc} kategori={dummy.kategori} open={dummy.open} price={dummy.price}nama={dummy.nama} photo={dummy.photo} />
   

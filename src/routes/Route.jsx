@@ -19,6 +19,9 @@ import MyPost from "../pages/MyPost";
 import AntarJemput from "../pages/AntarJemput";
 import Komunitas from "../pages/Komunitas";
 import KomunitasDetail from "../pages/KomunitasDetail";
+import CheckValidated from "./visibility/CheckValidated";
+import TambahAntarJemput from "../pages/TambahAntarJemput";
+import TambahKomunitas from "../pages/TambahKomunitas";
 const createRouter = createBrowserRouter([
   {
     path: "/",
@@ -61,7 +64,7 @@ const createRouter = createBrowserRouter([
     
   },
   {
-    path:'/',
+    path: '/',
     element: <PrivateRoute />,
     children: [
       {
@@ -81,15 +84,31 @@ const createRouter = createBrowserRouter([
         element:  <Verifikasi/>,
       },
       {
-        path: "/preloved/add",
+        path: "preloved/add",
         element: <PageLayout> <TambahPreloved/></PageLayout>,
       },
       {
-        path: "/jastip/add",
+        path: "jastip/add",
         element: <PageLayout> <TambahJastip/></PageLayout>,
+      },
+      {
+        path: "antarJemput/add",
+        element: <PageLayout> <TambahAntarJemput/></PageLayout>,
+      },
+      {
+        path: "komunitas/add",
+        element: <PageLayout> <TambahKomunitas/></PageLayout>,
+      },
+      {
+        path: "/",
+        element: <CheckValidated />,
+        children: [
+         
+        ],
       },
     ],
   },
+  
   {
     path:'/',
     element: <GuestRoute />,

@@ -1,22 +1,18 @@
 import { Icon } from "@iconify/react";
-import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import logoGoggle from "../../public/logoGoggle.png";
+import {useNavigate } from "react-router-dom";
 import { getProfile } from "../api/services/auth";
+import { createJasaAntar } from "../api/services/jasaAntar";
 import { createJastip } from "../api/services/jastip";
-import { createPreloved } from "../api/services/preloved";
 import DropdownSelect from "../components/DropdownSelect";
 import InputField from "../components/InputField";
 
-const TambahJastip = () => {
+const TambahAntarJemput = () => {
   const [input, setInput] = useState({
     Title: "",
     Category: "",
-    Price: "",
-    OpenDay: "",
-    CloseOrder: "",
+    Area: "",
     idUser: "",
   });
 
@@ -77,15 +73,15 @@ const TambahJastip = () => {
  
   const addJastip = async () => {
     try {
-      await createJastip(input)
-      navigate("/jastip");
+      await createJasaAntar(input)
+      navigate("/antarJemput");
     } catch (error) {
       console.log(error);
     }
   };
   
   const kategori =[
-    "Makanan","Barang"
+    "Antar Jemput","Antar Barang"
   ]
  
 
@@ -110,29 +106,17 @@ const TambahJastip = () => {
             <div className="w-[31%] aspect-square object-cover border border-Outline-gray rounded-lg"></div>
           </div>
 
-          <InputField type={"text"} name={"Title"} labelSize={"text-base font-semibold"} mb={"mb-8"}  onChange={handleChange} placeholder={"cth. Ayam Geprek"} >
-            Nama Jastip
+          <InputField type={"text"} name={"Title"} labelSize={"text-base font-semibold"} mb={"mb-8"}  onChange={handleChange} placeholder={"cth. Ada yang bisa anterin aku? "} >
+           Judul
           </InputField>
-          <div className={`form-control mb-8 `}>
-        <label className="label ">
-            <span className={`label-text text-Primary-Blue  font-medium`}>
-                Deskripsi
-            </span>
-        </label>
-        <textarea onChange={handleChange}  name="Description" className="textarea textarea-bordered bg-transparent text-xs  h-48 text-Text-Black" placeholder="Tambah deskripsi barangmu disini..."></textarea>
-    </div>
+        
           <p className="text-base font-semibold text-Primary-Blue mb-3">Detail</p>
           <DropdownSelect placeHolder={'Pilih Kategori'} onSelect={handleCategorySelect} option={kategori}>Kategori</DropdownSelect>
           
-          <InputField type={"text"} name={"OpenDay"} labelSize={"font-semibold"} onChange={handleChange}  mb={"mb-8"} placeholder={"Senin - Jumat"} >
-            Hari Buka
+          <InputField type={"text"} name={"Area"} labelSize={"font-semibold"} onChange={handleChange}  mb={"mb-8"} placeholder={"Senin - Jumat"} >
+            Area
           </InputField>
-          <InputField type={"text"} name={"CloseOrder"} labelSize={"font-semibold"} onChange={handleChange}  mb={"mb-8"} placeholder={"21.00"} >
-            Jam Tutup Order
-          </InputField>
-          <InputField type={"text"} name={"Price"} labelSize={"text-base font-semibold"} mb={"mb-8"}  onChange={handleChange} placeholder={"Rp 0.00"} >
-            Harga
-          </InputField>
+        
         </section>
 
         <button type="submit" className="btn bg-Primary-Blue active:bg-opacity-75 border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
@@ -143,4 +127,4 @@ const TambahJastip = () => {
   );
 };
 
-export default TambahJastip;
+export default TambahAntarJemput;
