@@ -32,7 +32,7 @@ const PrelovedDetail = () => {
 
   return (
     <div className="bg-Primary-LightBlue">
-      <main className="w-full md:px-56 p-4 font-Poppins">
+      <main className="w-full md:px-56 md:py-28 p-4  font-Poppins">
         <CardDetail desc={data.description} userId={data.idUser} nama={data.title}  price={data.price} photo={dummy.photo} kategori={data.category} kondisi={data.condition} />
       </main>
     </div>

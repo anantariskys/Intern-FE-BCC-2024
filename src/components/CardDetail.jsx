@@ -20,7 +20,7 @@ const CardDetail = ({ nama, price, desc, photo, kategori, kondisi, closeOrder, o
     fetchData();
   }, [userId]);
   
-  console.log(userData)
+  
   return (
     <div className="border md:border-0 flex flex-col lg:flex-row md:gap-5  border-Outline-gray p-5 rounded-2xl">
       <div className="block lg:hidden">

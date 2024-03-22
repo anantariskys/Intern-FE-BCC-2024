@@ -34,7 +34,7 @@ const KomunitasDetail = () => {
   return (
     <div className="bg-Primary-LightBlue">
      
-    <main className="w-full p-4  md:px-56 font-Poppins">
+    <main className="w-full p-4  md:px-56 md:py-28 font-Poppins">
      
       <CardDetail desc={data.description} nama={data.title} link={data.linkWebsite}  kategori={data.category} photo={dummy.photo} userId={data.idUser}/>
   
