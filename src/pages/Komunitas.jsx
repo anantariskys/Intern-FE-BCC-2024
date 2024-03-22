@@ -75,7 +75,7 @@ const Komunitas = () => {
               ) : (
                 <section className="w-full flex flex-col gap-3  ">
                   {filteredKomunitas.map((item, index) => (
-                    <Link to={`/komunitas/${item.id}`}>
+                    <Link key={index} to={`/komunitas/${item.idKomunitasbraw}`}>
                       <div className="w-full md:w-4/5  ms-auto border md:h-40 h-36 flex gap-2 border-Outline-gray rounded-2xl p-3 hover:bg-Primary-White duration-300 hover:shadow-2xl hover:-translate-y-1 ease-in-out">
                         <img src={"https://source.unsplash.com/random/900×700/?fruit"} className="w-28 md:w-36 aspect-square object-cover rounded-lg" alt="card-image" loading="lazy" draggable="false" />
                         <div className="size-full flex  flex-col justify-between ">

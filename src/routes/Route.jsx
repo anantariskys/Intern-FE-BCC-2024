@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, RouterProvider } from "react-router-dom";
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "./visibility/PrivateRoute";
 import Home from "../pages/Home";
@@ -22,10 +22,13 @@ import KomunitasDetail from "../pages/KomunitasDetail";
 import CheckValidated from "./visibility/CheckValidated";
 import TambahAntarJemput from "../pages/TambahAntarJemput";
 import TambahKomunitas from "../pages/TambahKomunitas";
+import { AuthProvider } from "../hooks/useAuth";
+import { createBrowserRouter } from "react-router-dom";
+
 const createRouter = createBrowserRouter([
   {
     path: "/",
-    element: <PageLayout><Home /></PageLayout>,
+    element: <PageLayout><Home/></PageLayout>,
     
   },
   {
@@ -84,25 +87,25 @@ const createRouter = createBrowserRouter([
         element:  <Verifikasi/>,
       },
       {
-        path: "preloved/add",
-        element: <PageLayout> <TambahPreloved/></PageLayout>,
-      },
-      {
-        path: "jastip/add",
-        element: <PageLayout> <TambahJastip/></PageLayout>,
-      },
-      {
-        path: "antarJemput/add",
-        element: <PageLayout> <TambahAntarJemput/></PageLayout>,
-      },
-      {
-        path: "komunitas/add",
-        element: <PageLayout> <TambahKomunitas/></PageLayout>,
-      },
-      {
         path: "/",
         element: <CheckValidated />,
         children: [
+          {
+            path: "preloved/add",
+            element: <PageLayout> <TambahPreloved/></PageLayout>,
+          },
+          {
+            path: "jastip/add",
+            element: <PageLayout> <TambahJastip/></PageLayout>,
+          },
+          {
+            path: "antarJemput/add",
+            element: <PageLayout> <TambahAntarJemput/></PageLayout>,
+          },
+          {
+            path: "komunitas/add",
+            element: <PageLayout> <TambahKomunitas/></PageLayout>,
+          },
          
         ],
       },
@@ -130,7 +133,13 @@ const createRouter = createBrowserRouter([
 ]);
 
 const Route = () => {
-  return <RouterProvider router={createRouter} />;
+  return (
+   
+      <AuthProvider>
+        <RouterProvider router={createRouter} />
+      </AuthProvider>
+   
+  );
 };
 
 export default Route;

@@ -3,14 +3,16 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getProfile } from "../api/services/auth";
-import useAuth from "../hooks/useAuth";
+import {useAuth} from "../hooks/useAuth";
 
 
 const Profil = () => {
   const [data, setData] = useState([]);
   const {logout} = useAuth()
+  const navigate = useNavigate()
+  const{setIsAuthenticated} = useAuth()
 
   useEffect(() => {
     const fetchProfil = async () => {
@@ -20,6 +22,8 @@ const Profil = () => {
       } catch (error) {
         if (error.response.statusText === "Unauthorized") {
           window.localStorage.removeItem("token")
+          setIsAuthenticated(false)
+          navigate('/')
           
         }
       }
@@ -56,14 +60,14 @@ const Profil = () => {
             <Icon className="text-2xl text-Primary-Blue" icon="ic:baseline-whatsapp" />
             <h5 className="text-xs text-Primary-Blue">Telp</h5>
           </div>
-          <p className="text-sm text-Text-Black">082165439856</p>
+          <p className="text-sm text-Text-Black">{data.contact&&data.contact}</p>
         </div>
         <div className="flex justify-between">
           <div className="flex items-center gap-4">
             <Icon className="text-2xl text-Primary-Blue" icon="ion:location" />
             <h5 className="text-xs text-Primary-Blue">Alamat</h5>
           </div>
-          <p className="text-sm text-Text-Black">{data.alamat ? data.alamat : "-"}</p>
+          <p className="text-sm text-Text-Black">{data.alamat && data.alamat }</p>
         </div>
       </section>
       <section className="w-full p-4 flex-col flex  md:max-w-sm gap-4 border border-Outline-gray rounded-2xl">

@@ -13,7 +13,14 @@ const getAllJastip = async () => {
     throw error;
   }
 };
-
+const getJastipByUserId = async (id) => {
+    try {
+        const response = await coreApi.get(`/readjastipbyuserid/${id}`)
+        return(response.data.data)
+      } catch (error) {
+        throw error
+      }
+};
 const getJastipById = async (id) => {
     try {
         const response = await coreApi.get(`/readjastip/${id}`)
@@ -54,4 +61,4 @@ const deleteJastip = async(id)=>{
 
 
 
-export { getAllJastip,getJastipById,createJastip,deleteJastip };
+export { getAllJastip,getJastipById,createJastip,deleteJastip ,getJastipByUserId};

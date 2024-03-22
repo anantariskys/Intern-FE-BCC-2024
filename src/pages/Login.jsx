@@ -4,8 +4,10 @@ import { Link, useNavigate} from "react-router-dom";
 import logoGoggle from "../../public/logoGoggle.png";
 import { login } from "../api/services/auth";
 import InputField from "../components/InputField";
+import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
+  const{setIsAuthenticated} = useAuth()
   const [input, setInput] = useState({
     Email: "",
     Password: "",
@@ -57,6 +59,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       await login(input);
+      setIsAuthenticated(true)
       navigate('/')
     } catch (error) {
       console.log(error);
@@ -86,7 +89,7 @@ const Login = () => {
         <div className='"  w-full flex flex-col items-center'>
           <button
             type="submit"
-            className="btn bg-Primary-Blue border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  active:bg-opacity-75 px-12 w-1/2 text-base font-semibold  hover:bg-Primary-Purple a duration-300 ease-in-out"
+            className="btn w-full bg-Primary-Blue border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  active:bg-opacity-75 px-12 w-1/2 text-base font-semibold  hover:bg-Primary-Purple a duration-300 ease-in-out"
           >
             Login
           </button>

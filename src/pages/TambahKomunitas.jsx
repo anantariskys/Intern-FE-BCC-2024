@@ -11,10 +11,9 @@ const TambahKomunitas = () => {
   const [input, setInput] = useState({
     Title: "",
     Category: "",
-    Price: "",
-    OpenDay: "",
-    CloseOrder: "",
+    Description: "",
     idUser: "",
+    LinkWebsite: "",
   });
 
   const navigate = useNavigate()
@@ -66,13 +65,13 @@ const TambahKomunitas = () => {
   
 
 
-    addJastip()
+    addKomunitas()
 
    
   };
 
  
-  const addJastip = async () => {
+  const addKomunitas = async () => {
     try {
       await createKomunitas(input)
       navigate("/komunitas");
@@ -120,13 +119,13 @@ const TambahKomunitas = () => {
           <p className="text-base font-semibold text-Primary-Blue mb-3">Detail</p>
           <DropdownSelect placeHolder={'Pilih Kategori'} onSelect={handleCategorySelect} option={kategori}>Kategori</DropdownSelect>
           
-          <InputField type={"text"} name={"OpenDay"} labelSize={"font-semibold"} onChange={handleChange}  mb={"mb-8"} placeholder={"cth. reallygreatsite.com"} >
+          <InputField type={"text"} required={false} name={"LinkWebsite"} labelSize={"font-semibold"} onChange={handleChange}  mb={"mb-8"} placeholder={"cth. reallygreatsite.com"} >
             Website (opsional)
           </InputField>
           
         </section>
 
-        <button type="submit" className="btn bg-Primary-Blue active:bg-opacity-75 border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
+        <button type="submit" className="btn w-full bg-Primary-Blue active:bg-opacity-75 border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
           Tambah
         </button>
       </form>

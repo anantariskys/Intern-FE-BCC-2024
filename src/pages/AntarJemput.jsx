@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllJasaAntar } from "../api/services/jasaAntar";
 import Card from "../components/Card";
+import CardAntarJemput from "../components/CardAntarJemput";
 import DropdownCheckbox from "../components/DropdownCheckbox";
 import HeaderCard from "../components/HeaderCard";
 
@@ -73,12 +74,12 @@ const AntarJemput = () => {
 
   return (
     <div className="bg-Primary-LightBlue font-Poppins">
-      <main className="w-full p-4 md:px-24 md:gap-8 flex md:flex-row-reverse flex-col">
+      <main className="w-full p-4 lg:px-24 lg:gap-8 flex lg:flex-row-reverse flex-col">
         <div>
           <HeaderCard btnText={"Tambah Antar Jemput"} to={"/antarJemput/add"} message={"Ada lokasi yang harus dicapai? atau barang yang harus sampai? "} />
 
           <section className="w-full py-4 mb-8">
-            <div className="flex md:hidden items-center justify-between mb-4 ">
+            <div className="flex lg:hidden items-center justify-between mb-4 ">
               <h2 className="text-lg font-semibold bg-Secondary-LightYellow text-Text-Black bg-opacity-50 py-1 px-3 rounded-2xl">😲 Antar Jemput BRAW! </h2>
               <DropdownCheckbox option={category} onSelect={handleCategorySelect} />
             </div>
@@ -89,7 +90,7 @@ const AntarJemput = () => {
           </section>
         </div>
         <div className="w-full">
-          <div className="hidden md:flex items-center justify-between mb-4 ">
+          <div className="hidden lg:flex items-center justify-between mb-4 ">
             <h2 className="text-lg font-semibold bg-Secondary-LightYellow text-Text-Black bg-opacity-50 py-1 px-3 rounded-2xl">😲 Antar Jemput BRAW! </h2>
          
               <DropdownCheckbox option={category} onSelect={handleCategorySelect} />
@@ -106,27 +107,9 @@ const AntarJemput = () => {
                   <p className="">Tidak ada data</p>
                 </section>
               ) : (
-                <section className="w-full flex flex-col gap-3  md:grid md:grid-cols-3 place-items-center mx-auto md:gap-4 ">
+                <section className="w-full flex flex-col gap-3  md:grid md:grid-cols-3 place-items-center mx-auto lg:gap-4 ">
                   {filteredAntarJemput.map((item, index) => (
-                    <div className="w-full border md:h-full md:flex flex-col justify-between border-Outline-gray rounded-2xl p-4 hover:bg-Primary-White duration-300 hover:shadow-2xl hover:-translate-y-1 ease-in-out">
-                      <div>
-                        <div className="mb-2">
-                          <h2 className="text-xs  text-Primary-White font-medium inline-block bg-gradient-to-r from-Primary-Purple to-Primary-Blue py-px px-4 rounded-2xl">{item.category}</h2>
-                        </div>
-                        <h1 className="text-Text-Black text-base font-medium mb-3 line-clamp-3">{item.title}</h1>
-                      </div>
-
-                      <div>
-                        <p className="text-Text-Black text-sm mb-1">📍 {item.area}</p>
-                        <div className="flex justify-end w-full">
-                          <p className="text-Text-Black text-xs self-end mb-3">{formatTimeAgo(item.createdAt)}</p>
-                        </div>
-
-                        <button className="btn w-full mt-4 bg-Primary-Blue border-0 text-Primary-White hover:bg-Primary-Purple active:bg-opacity-75 duration-300 ease-in-out">
-                          Ambil Tawaran <Icon icon="mingcute:whatsapp-line" />
-                        </button>
-                      </div>
-                    </div>
+                    <CardAntarJemput area={item.area} createdAt={item.createdAt} category={item.category} title={item.title} key={index} userId={item.idUser}/>
                   ))}
                 </section>
               )}

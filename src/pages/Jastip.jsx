@@ -83,7 +83,7 @@ const Jastip = () => {
               ) : (
                 <section className="w-full grid grid-cols-2 md:grid-cols-4 place-items-center mx-auto gap-4 ">
                   {filteredJastip.map((item, index) => (
-                    <Link to={`/jastip/${item.id}`}>
+                    <Link to={`/jastip/${item.idJastip}`}>
                       <Card key={index} image={item.image} type="jastip" kategori={item.category} nama={item.title} price={item.price} closeOrder={item.closeOrder} buka={item.openDay} />
                     </Link>
                   ))}

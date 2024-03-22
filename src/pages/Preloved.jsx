@@ -75,7 +75,7 @@ const Preloved = () => {
           ) : (
             <>
               {filteredData && filteredData.length > 0 ? (
-                <section className="w-full grid grid-cols-2 md:grid-cols-4 place-items-center mx-auto gap-4">
+                <section className="w-full grid grid-cols-2  lg:grid-cols-4 place-items-center mx-auto gap-4">
                   {filteredData.map((item, index) => (
                     <Link key={index} to={`/preloved/${item.idPreloved}`}>
                       <Card countdown={item.countdown} type="preloved" image={item.image} kategori={item.category} kondisi={item.condition} nama={item.title} price={item.price} />

@@ -74,7 +74,7 @@ const TambahPreloved = () => {
     }
   };
 
-  const kategori = ["Pendidikan", "Fashion", "Perlengkapan Kos", "Gadget", "Hobi"];
+  const kategori = ["Pendidikan", "Fashion", "Perlengkapan Kos", "Gadget & Elektronik", "Hobi"];
   const kondisi = [">90%", "88%-95%", "80%-87%", "70%-79%", "<70%"];
 
   return (
@@ -117,12 +117,12 @@ const TambahPreloved = () => {
           <InputField type={"text"} name={"Alamat"} labelSize={"font-semibold"} mb={"mb-8"} placeholder={"Jl. Sigura gura V Blok H1 No.3, Lowokwaru, Malang"}>
             Alamat Lengkap
           </InputField>
-          <InputField type={"text"} name={"Price"} labelSize={"text-base font-semibold"} mb={"mb-8"} onChange={handleChange} placeholder={"Rp 0.00"}>
+          <InputField type={"number"} name={"Price"} labelSize={"text-base font-semibold"} mb={"mb-8"} onChange={handleChange} placeholder={"Rp 0.00"}>
             Harga
           </InputField>
         </section>
 
-        <button type="submit" className="btn bg-Primary-Blue active:bg-opacity-75 border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
+        <button type="submit" className="btn w-full bg-Primary-Blue active:bg-opacity-75 border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
           Tambah
         </button>
       </form>

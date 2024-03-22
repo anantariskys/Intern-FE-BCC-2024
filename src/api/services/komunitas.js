@@ -9,9 +9,9 @@ const getAllKomunitas = async () => {
     console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error);
-    throw error;
-  }
+      console.log(error);
+      throw error;
+    }
 };
 
 const getKomunitasById = async (id) => {
@@ -19,8 +19,16 @@ const getKomunitasById = async (id) => {
         const response = await coreApi.get(`/readkomunitasbraw/${id}`)
         console.log(response.data.data)
         return(response.data.data)
-      } catch (error) {
+    } catch (error) {
         console.log(error);
+        throw error
+    }
+};
+const getKomunitasByUserId = async (id) => {
+    try {
+        const response = await coreApi.get(`/readkomunitasbrawbyuserid/${id}`)
+        return(response.data.data)
+      } catch (error) {
         throw error
       }
 };
@@ -54,4 +62,4 @@ const deleteKomunitas = async(id)=>{
 
 
 
-export { getAllKomunitas,getKomunitasById,createKomunitas,deleteKomunitas};
+export { getAllKomunitas,getKomunitasById,createKomunitas,deleteKomunitas,getKomunitasByUserId};

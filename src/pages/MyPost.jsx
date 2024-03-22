@@ -1,51 +1,73 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { deleteJasaAntar, getJasaAntarByUserId } from "../api/services/jasaAntar";
+import { deleteJastip, getJastipByUserId } from "../api/services/jastip";
+import { deleteKomunitas, getKomunitasByUserId } from "../api/services/komunitas";
 import { deletePreloved, getPrelovedByUserId } from "../api/services/preloved";
 import DropdownCheckbox from "../components/DropdownCheckbox";
 import HeaderCard from "../components/HeaderCard";
-import useAuth from "../hooks/useAuth";
+import {useAuth} from "../hooks/useAuth";
 
 const MyPost = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const [data, setData] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategories, setSelectedCategories] = useState([]);
-
   const { userData } = useAuth();
-
+  
   useEffect(() => {
-    console.log(userData);
+
     const fetchData = async () => {
-      try {
-        const response = await getPrelovedByUserId(userData.idUser);
-        console.log(response);
-        setData(response);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 500);
-      } catch (error) {
-        console.log(error);
-      }
+      const prelovedData = await getPrelovedByUserId(userData.idUser);
+      const jastipData = await getJastipByUserId(userData.idUser);
+      const jasaAntarData = await getJasaAntarByUserId(userData.idUser);
+      const komunitasData = await getKomunitasByUserId(userData.idUser);
+  
+      const prelovedWithType = prelovedData.map((item) => ({ ...item, type: "Preloved" ,idName : "idPreloved"}));
+      const jastipWithType = jastipData.map((item) => ({ ...item, type: "Jastip",idName : "idJastip" }));
+      const jasaAntarWithType = jasaAntarData.map((item) => ({ ...item, type: "JasaAntar",idName : "idJasantar" }));
+      const komunitasWithType = komunitasData.map((item) => ({ ...item, type: "KomunitasBraw" ,idName : "idKomunitasbraw"}));
+  
+      const combinedData = [...prelovedWithType, ...jastipWithType, ...jasaAntarWithType, ...komunitasWithType];
+      
+      setData(combinedData);
+      setIsLoading(false);
     };
+    
     userData && fetchData();
   }, [userData]);
+  
 
-  const filteredPost = data.filter((item) => item.title.toLowerCase().includes(searchTerm.toLowerCase()) && (selectedCategories.length === 0 || selectedCategories.includes(item.category)));
+
+
 
   const handleCategorySelect = (selectedOptions) => {
     setSelectedCategories(selectedOptions);
   };
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-  const kategori = ["Makanan", "Barang"];
 
-  const deletePost = async (id) => {
+  const kategori = ["Preloved", "Jastip","JasaAntar","Komunitas"];
+
+  const handleDelete = async (id, type) => {
     try {
-      await deletePreloved(id);
+      switch (type) {
+        case 'Preloved':
+          await deletePreloved(id);
+          break;
+        case 'Jastip':
+          await deleteJastip(id);
+          break;
+        case 'JasaAntar':
+          await deleteJasaAntar(id);
+          break;
+        case 'KomunitasBraw':
+          await deleteKomunitas(id);
+          break;
+        default:
+          break;
+      }
+      window.location.reload()
 
-      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -75,27 +97,28 @@ const MyPost = () => {
             </section>
           ) : (
             <>
-              {filteredPost && !filteredPost.length > 0 ? (
+              {data && !data.length > 0  ? (
                 <section className="flex justify-center items-center">
                   <p className="">Tidak ada postingan saya</p>
                 </section>
               ) : (
-                <section className="w-full mx-auto  ">
-                  {filteredPost &&
-                    filteredPost.map((item, index) => (
+                <section className="w-full mx-auto flex flex-col gap-4  ">
+                  <>
+                  {data &&
+                    data.map((item, index) => (
                       <div key={index} className="rounded-2xl w-full flex justify-between hover:bg-Primary-White duration-300 ease-in-out hover:shadow-xl p-3 gap-2  border border-Outline-gray">
                         <img src={"https://source.unsplash.com/random/900x700/?bag"} draggable="false" loading="lazy" alt="card-image" className="h-28 md:h-36 object-cover aspect-square rounded-xl" />
                         <div className="flex-col flex justify-between w-full ">
                           <div>
-                            <h2 className="text-xs  text-Primary-White font-medium inline-block bg-gradient-to-r from-Primary-Purple to-Primary-Blue py-px px-4 rounded-2xl">Temu Preloved</h2>
+                            <h2 className="text-xs  text-Primary-White font-medium inline-block bg-gradient-to-r from-Primary-Purple to-Primary-Blue py-px px-4 rounded-2xl">{item.type}</h2>
                           </div>
                           <div className="">
                             <h3 className="text-sm font-semibold text-Text-Black mb-2">{item.title}</h3>
                           </div>
                           <div className="flex justify-between self-end items-end gap-2">
-                            <Icon icon={"mdi:trash"} onClick={() => document.getElementById("my_modal_1").showModal()} className="text-2xl text-Text-Placeholder" />
+                            <Icon icon={"mdi:trash"} onClick={() => document.getElementById(index).showModal()} className="text-2xl text-Text-Placeholder" />
 
-                            <dialog id="my_modal_1" className="modal ">
+                            <dialog id={index} className="modal ">
                               <div className="modal-box bg-Primary-LightBlue flex items-center flex-col gap-8 p-4">
                                 <Icon icon={"material-symbols:logout"} className="text-Primary-Blue text-8xl" />
                                 <h3 className="font-semibold text-2xl text-Primary-Blue">Yakin ingin hapus?</h3>
@@ -104,7 +127,7 @@ const MyPost = () => {
                                     <button className="btn border-0 bg-Primary-Blue text-base font-semibold hover:bg-Primary-Purple duration-300 ease-in-out active:bg-opacity-75 text-Primary-LightBlue w-full">Tidak</button>
                                   </form>
                                   <button
-                                    onClick={() => deletePost(item.idPreloved)}
+                                    onClick={() => handleDelete(item[item.idName], item.type)}
                                     className="btn border bg-Primary-LightBlue  text-base font-semibold hover:bg-Secondary-LightTeal duration-300 ease-in-out text-Primary-Blue border-Outline-gray w-1/2 "
                                   >
                                     Hapus
@@ -124,6 +147,8 @@ const MyPost = () => {
                         </div>
                       </div>
                     ))}
+                
+                    </>
                 </section>
               )}
             </>

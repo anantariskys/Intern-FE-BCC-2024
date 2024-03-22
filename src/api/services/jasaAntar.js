@@ -13,6 +13,14 @@ const getAllJasaAntar = async () => {
     throw error;
   }
 };
+const getJasaAntarByUserId = async (id) => {
+    try {
+        const response = await coreApi.get(`/readjasantarbyuserid/${id}`)
+        return(response.data.data)
+      } catch (error) {
+        throw error
+      }
+};
 
 const getJasaAntarById = async (id) => {
     try {
@@ -54,4 +62,4 @@ const deleteJasaAntar = async(id)=>{
 
 
 
-export { getAllJasaAntar,getJasaAntarById,createJasaAntar,deleteJasaAntar };
+export { getAllJasaAntar,getJasaAntarById,createJasaAntar,deleteJasaAntar ,getJasaAntarByUserId};

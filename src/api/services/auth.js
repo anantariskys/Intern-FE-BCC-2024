@@ -1,4 +1,5 @@
 
+import axios from "axios";
 import coreApi from "../coreApi";
 
 
@@ -23,6 +24,8 @@ const register =async(form)=>{
       }
 }
 
+
+
 const getProfile =async()=>{
     try {
         const token = localStorage.getItem('token'); 
@@ -36,4 +39,25 @@ const getProfile =async()=>{
         throw error
       }
 }
-export {login,register,getProfile}
+const updateProfile =async(id,form)=>{
+    try {
+        
+        const response = await axios.patch(`https://braw-mager-d9515b823a62.herokuapp.com/user/updatedata/${id}`,form);
+        console.log(response)
+        return response
+  
+      } catch (error) {
+        throw error
+      }
+}
+
+const getUserDataByUserId = async(id)=>{
+  try {
+    const response = await axios.get(`https://braw-mager-d9515b823a62.herokuapp.com/user/readuserdatabyuserid/${id}`);
+    return response.data
+
+  } catch (error) {
+    throw error
+  }
+}
+export {login,register,getProfile,updateProfile,getUserDataByUserId}

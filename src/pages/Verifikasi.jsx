@@ -2,7 +2,9 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import logoGoggle from '../../public/logoGoggle.png'
+import { updateProfile } from '../api/services/auth';
 import InputField from '../components/InputField';
+import { useAuth } from '../hooks/useAuth';
 
 const Verifikasi = () => {
   const [input, setInput] = useState({
@@ -10,6 +12,9 @@ const Verifikasi = () => {
     contact: "",
   });
   const navigate = useNavigate()
+  const {userData} = useAuth()
+
+  console.log(userData)
 
  
 
@@ -26,8 +31,19 @@ const Verifikasi = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(input)
+    update()
   
   }
+
+  const update = async () => {
+    try {
+      const response = await updateProfile(userData.idUser,input);
+      navigate("/profile");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
  
 
@@ -56,7 +72,7 @@ const Verifikasi = () => {
         </section>
       </div>
 
-       <button type="submit" className="btn bg-Primary-Blue font-Poppins border-0 active:bg-opacity-75 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
+       <button type="submit" className="btn w-full bg-Primary-Blue font-Poppins border-0 active:bg-opacity-75 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out">
           Simpan Alamat
         </button>
        

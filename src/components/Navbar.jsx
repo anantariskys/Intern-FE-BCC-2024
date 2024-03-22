@@ -1,7 +1,7 @@
 import React from "react";
 import {FaBell,FaUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import {useAuth} from "../hooks/useAuth";
 const Navbar = () => {
     const {isAuthenticated} = useAuth()
 
