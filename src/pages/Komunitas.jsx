@@ -39,7 +39,7 @@ const Komunitas = () => {
 
   return (
     <div className="bg-Primary-LightBlue font-Poppins">
-      <main className="w-full p-4 lg:px-24 lg:gap-8 flex lg:flex-row-reverse flex-col ">
+      <main className="w-full p-4 lg:px-24 lg:py-10 lg:gap-8 flex lg:flex-row-reverse flex-col ">
         <div>
           <HeaderCard btnText={"Tambah Post"} to={"/Komunitas/add"} message={"Punya jasa, bisnis, kuesioner, atau barang yang ingin diberitahukan?"} />
 

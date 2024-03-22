@@ -48,7 +48,7 @@ const Jastip = () => {
 
   return (
     <div className="bg-Primary-LightBlue">
-      <main className="w-full p-4 lg:px-24 lg:gap-8 flex lg:flex-row-reverse flex-col">
+      <main className="w-full p-4 lg:px-24 lg:py-10 lg:gap-8 flex lg:flex-row-reverse flex-col">
         <div>
           <HeaderCard btnText={"Tambah Jastip"} to={"/jastip/add"} message={"Promosiin layanan jastip kamu di sini yuk!"} />
 
