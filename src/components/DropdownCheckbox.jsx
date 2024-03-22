@@ -21,7 +21,7 @@ const DropdownCheckbox = ({ option, onSelect }) => {
       <div className="relative">
         <div
           onClick={handleToggle}
-          className="h-full aspect-square relative bg-Primary-Blue rounded-lg w-9 flex justify-center items-center"
+          className="h-full aspect-square relative bg-Primary-Blue hover:bg-Primary-Purple duration-300 ease-in-out active:bg-opacity-75 rounded-lg w-9 flex justify-center items-center"
         >
           <Icon icon="mingcute:settings-6-line" className="text-Primary-LightBlue text-lg" />
         </div>

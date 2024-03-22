@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({ key, kategori, image, nama, price, kondisi, closeOrder, buka ,type}) => {
   return (
-    <div key={key} className={`w-40 lg:w-full ${type==="jastip"?"h-[19.063rem] lg:h-[21.875rem]":"h-72 lg:h-[21rem] "}   p-3 border font-Poppins  hover:bg-Primary-White duration-300 hover:shadow-2xl hover:-translate-y-1 ease-in-out flex flex-col justify-between border-Outline-gray rounded-2xl`}>
+    <div key={key} className={`w-40 lg:w-full ${type==="jastip"?"h-[19.063rem] lg:h-[22rem]":"h-72 lg:h-[22.5rem] "}   p-3 border font-Poppins  hover:bg-Primary-White duration-300 hover:shadow-2xl hover:-translate-y-1 ease-in-out flex flex-col justify-between border-Outline-gray rounded-2xl`}>
       <div className="flex-col  flex gap-2">
         <div>
           <h2 className="text-xs lg:text-sm  text-Primary-White font-medium inline-block bg-gradient-to-r from-Primary-Purple to-Primary-Blue py-px px-4 rounded-2xl">{kategori}</h2>
