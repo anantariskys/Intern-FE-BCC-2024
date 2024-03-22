@@ -135,7 +135,7 @@ const MyPost = () => {
                                 </div>
                               </div>
                             </dialog>
-                            <Link key={index} to={`/preloved/${item.id_preloved}`}>
+                            <Link key={index} to={`/preloved/${item[item.idName]}`}>
                               <button className="text-[0.625rem] btn btn-xs hover:bg-Primary-Purple ease-in-out duration-200 border-0  bg-Primary-Blue text-Primary-White">
                                 Selengkapnya
                                 <span>

@@ -48,12 +48,12 @@ const Jastip = () => {
 
   return (
     <div className="bg-Primary-LightBlue">
-      <main className="w-full p-4 md:px-24 md:gap-8 flex md:flex-row-reverse flex-col">
+      <main className="w-full p-4 lg:px-24 lg:gap-8 flex lg:flex-row-reverse flex-col">
         <div>
           <HeaderCard btnText={"Tambah Jastip"} to={"/jastip/add"} message={"Promosiin layanan jastip kamu di sini yuk!"} />
 
           <section className="w-full py-4 mb-8">
-            <div className="flex md:hidden items-center justify-between mb-4 ">
+            <div className="flex lg:hidden items-center justify-between mb-4 ">
               <h2 className="text-lg font-semibold bg-Secondary-LightYellow text-Text-Black bg-opacity-50 py-1 px-3 rounded-2xl">😉 Temukan Jastip-mu!</h2>
               <DropdownCheckbox option={kategori} onSelect={handleCategorySelect} />
 
@@ -65,7 +65,7 @@ const Jastip = () => {
           </section>
         </div>
         <div className="w-full">
-          <div className="items-center hidden md:flex justify-between mb-4 ">
+          <div className="items-center hidden lg:flex justify-between mb-4 ">
             <h2 className="text-lg font-semibold bg-Secondary-LightYellow text-Text-Black bg-opacity-50 py-1 px-3 rounded-2xl">😉 Temukan Jastip-mu!</h2>
             <DropdownCheckbox option={kategori} onSelect={handleCategorySelect} />
 

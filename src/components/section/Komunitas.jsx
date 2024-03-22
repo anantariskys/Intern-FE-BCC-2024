@@ -21,7 +21,7 @@ const Komunitas = () => {
     fetchData();
   }, []);
 
-  console.log(data)
+
   return (
     <section className="px-4  md:px-24 font-Poppins mt-8 mb-8">
       <div className="flex items-center lg:justify-start lg:gap-8 justify-between mb-4 ">

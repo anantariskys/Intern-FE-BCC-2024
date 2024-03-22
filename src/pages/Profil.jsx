@@ -67,7 +67,7 @@ const Profil = () => {
             <Icon className="text-2xl text-Primary-Blue" icon="ion:location" />
             <h5 className="text-xs text-Primary-Blue">Alamat</h5>
           </div>
-          <p className="text-sm text-Text-Black">{data.alamat && data.alamat }</p>
+          <p className="text-sm text-right text-Text-Black">{data.alamat && data.alamat }</p>
         </div>
       </section>
       <section className="w-full p-4 flex-col flex  md:max-w-sm gap-4 border border-Outline-gray rounded-2xl">

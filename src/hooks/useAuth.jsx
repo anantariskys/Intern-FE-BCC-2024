@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { getProfile } from '../api/services/auth';
 
 const AuthContext = createContext();
@@ -10,9 +10,9 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => !!window.localStorage.getItem('token'));
-  const [ isValidated ,setIsValidated] = useState()
+  const [isValidated, setIsValidated] = useState();
   const [userData, setUserData] = useState();
-
+  const [isDataLoaded, setIsDataLoaded] = useState(false); 
 
   useEffect(() => {
     setIsAuthenticated(!!window.localStorage.getItem('token'));
@@ -21,17 +21,23 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getProfile();
-        setUserData(response);
-        if (response.alamat==="" || response.contact==="") {
-          setIsValidated(false)
-        } else {
-          setIsValidated(true)
-          
+        if (localStorage.getItem('token')) {
+          const response = await getProfile();
+           setUserData(response);
+           if (response && response.alamat === "" || response && response.contact === "") {
+             setIsValidated(false);
+           } else {
+             setIsValidated(true);
+           }
         }
-        
+        setIsDataLoaded(true); 
       } catch (error) {
-        console.log(error);
+        if (error.response.statusText === "Unauthorized") {
+          window.localStorage.removeItem("token");
+          
+          setIsAuthenticated(false);
+        }
+        setIsDataLoaded(true); 
       }
     };
 
@@ -40,12 +46,12 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     window.localStorage.removeItem('token');
-    setIsAuthenticated(false)
+    setIsAuthenticated(false);
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, logout, userData,setIsAuthenticated ,isValidated}}>
-      {children}
+    <AuthContext.Provider value={{ isAuthenticated, logout, userData, setIsAuthenticated, isValidated, isDataLoaded }}>
+      {isDataLoaded && children} 
     </AuthContext.Provider>
   );
 };

@@ -49,11 +49,11 @@ const Preloved = () => {
 
   return (
     <div className="bg-Primary-LightBlue">
-      <main className="w-full p-4 md:px-24 md:gap-8 flex md:flex-row-reverse flex-col">
+      <main className="w-full p-4 lg:px-24 lg:gap-8 flex lg:flex-row-reverse flex-col">
         <div>
           <HeaderCard btnText={"Mulai Jualan"} to={"/preloved/add"} message={"Punya barang tak terpakai? Jual di sini aja!"} />
           <section className="w-full py-4 mb-8">
-            <div className="flex md:hidden items-center justify-between mb-4 ">
+            <div className="flex lg:hidden items-center justify-between mb-4 ">
               <h2 className="text-lg font-semibold bg-Secondary-LightYellow text-Text-Black bg-opacity-50 py-1 px-3 rounded-2xl">😍 Temukan Preloved favoritmu!</h2>
               <DropdownCheckbox option={kategori} onSelect={handleCategorySelect} />
             </div>
@@ -64,7 +64,7 @@ const Preloved = () => {
           </section>
         </div>
         <div className="w-full">
-          <div className="md:flex hidden items-center justify-between mb-4 ">
+          <div className="lg:flex hidden items-center justify-between mb-4 ">
             <h2 className="text-lg font-semibold bg-Secondary-LightYellow text-Text-Black bg-opacity-50 py-1 px-3 rounded-2xl">😍 Temukan Preloved favoritmu!</h2>
             <DropdownCheckbox option={kategori} onSelect={handleCategorySelect} />
           </div>
@@ -75,7 +75,7 @@ const Preloved = () => {
           ) : (
             <>
               {filteredData && filteredData.length > 0 ? (
-                <section className="w-full grid grid-cols-2  lg:grid-cols-4 place-items-center mx-auto gap-4">
+                <section className="w-full grid grid-cols-2  md:grid-cols-4 place-items-center mx-auto gap-4">
                   {filteredData.map((item, index) => (
                     <Link key={index} to={`/preloved/${item.idPreloved}`}>
                       <Card countdown={item.countdown} type="preloved" image={item.image} kategori={item.category} kondisi={item.condition} nama={item.title} price={item.price} />

@@ -50,7 +50,7 @@ const Register = () => {
       }));
       setIsValid(false);
     }
-    if (input.Username.length <= 6) {
+    if (input.Username.length < 6) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         Username: "Username harus lebih dari 6 karakter",
@@ -101,7 +101,7 @@ const Register = () => {
         </section>
 
         <div className="  w-full flex flex-col items-center">
-          <button type="submit" className="btn w-full bg-Primary-Blue border-0  text-Primary-LightBlue py-2 self-center mb-3  px-12 w-1/2 text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out active:bg-opacity-75">
+          <button type="submit" className="btn w-full bg-Primary-Blue border-0  text-Primary-LightBlue py-2 self-center mb-3  px-12  text-base font-semibold  hover:bg-Primary-Purple duration-300 ease-in-out active:bg-opacity-75">
             Daftar
           </button>
           <p className="text-base text-Text-Black mx-auto">

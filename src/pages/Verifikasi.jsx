@@ -14,7 +14,7 @@ const Verifikasi = () => {
   const navigate = useNavigate()
   const {userData} = useAuth()
 
-  console.log(userData)
+
 
  
 
@@ -31,10 +31,18 @@ const Verifikasi = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(input)
-    update()
   
-  }
+    if (!input.contact.startsWith(+62)) {
+      setInput((prevInput) => ({
+        ...prevInput,
+        error: "Nomor telepon harus dimulai dengan +62",
+      }));
+      return;
+    }
+  
+
+    update();
+  };
 
   const update = async () => {
     try {
@@ -60,7 +68,7 @@ const Verifikasi = () => {
       <h2 className="text-Primary-Blue font-semibold text-2xl font-Poppins  ">Lengkapi alamat</h2>
       <p className="text-sm text-Text-Black font-Poppins w-3/4 mb-5">Sebelum membeli atau menjual produk, isi biodata dan alamat kamu dulu yuk!</p>
         <section>
-        <InputField type={"number"} name={"contact"} value={input.contact} onChange={handleChange} placeholder={"0821xxxxxxxx"} >
+        <InputField type={"number"} name={"contact"} value={input.contact} onChange={handleChange} placeholder={"+62821xxxxxxxx"}  error={input.error} >
             Nomor Telepon
           </InputField>
           <InputField type={"text"} name={"alamat"} value={input.alamat} onChange={handleChange} placeholder={"Jl. Sigura gura V Blok H1 No.3, Lowokwaru, Malang"}>

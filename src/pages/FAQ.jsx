@@ -30,7 +30,7 @@ const FAQ = () => {
     ]
 
   return (
-    <div className="bg-Primary-LightBlue w-full p-4 font-Poppins">
+    <div className="bg-Primary-LightBlue w-full p-4 lg:px-24 lg:gap-8 font-Poppins">
       <h2 className="text-lg font-semibold bg-Secondary-LightYellow mb-4 inline-block text-Text-Black bg-opacity-50 py-1 px-3 rounded-2xl">🧐 Frequently Asked Question</h2>
       <section className="w-full flex flex-col gap-4">
         {

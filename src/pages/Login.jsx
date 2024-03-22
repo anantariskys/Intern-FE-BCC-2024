@@ -18,7 +18,7 @@ const Login = () => {
     Password: "",
   });
 
-  const [isValid, setIsValid] = useState(true);
+
   const navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -31,30 +31,40 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsValid(true)
   
-
+    let valid = true;
+  
     if (!input.Email.endsWith("ub.ac.id")) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         Email: "Email harus menggunakan domain ub.ac.id",
       }));
-      setIsValid(false);
+      valid = false;
+    } else {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        Email: "",
+      }));
     }
+  
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&]{8,}$/;
-    if (!passwordRegex.test(input.Password || input.Password.length <= 8)) {
+    if (!passwordRegex.test(input.Password) || input.Password.length < 8) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         Password: "Kata sandi setidaknya mengandung 1 Uppercase, 1 Lowercase, 1 Angka & Minimal 8 karakter",
       }));
-      setIsValid(false);
+      valid = false;
+    } else {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        Password: "",
+      }));
     }
-
-    if (isValid) {
+  
+    if (valid) {
       handleLogin();
     }
   };
-
 
   const handleLogin = async () => {
     try {
@@ -89,7 +99,7 @@ const Login = () => {
         <div className='"  w-full flex flex-col items-center'>
           <button
             type="submit"
-            className="btn w-full bg-Primary-Blue border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  active:bg-opacity-75 px-12 w-1/2 text-base font-semibold  hover:bg-Primary-Purple a duration-300 ease-in-out"
+            className="btn w-full bg-Primary-Blue border-0 text-Primary-LightBlue py-2 self-center justify-self-end mb-4  active:bg-opacity-75 px-12 text-base font-semibold  hover:bg-Primary-Purple a duration-300 ease-in-out"
           >
             Login
           </button>

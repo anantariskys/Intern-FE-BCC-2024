@@ -126,7 +126,7 @@ const Home = () => {
         <section className="w-full bg-Primary-Purple py-9 md:py-32 font-Poppins flex flex-col md:flex-row items-center md:justify-center rounded-t-3xl gap-8 md:gap-12">
           <p className="w-1/5 md:w-24 rounded-full aspect-square bg-[#FFFDE3] flex justify-center items-center text-4xl bg-opacity-50">🙆‍♀️</p>
           <div className="flex flex-col    items-center md:items-baseline justify-center">
-            <p className="text-sm md:text-lg font-normal text-Primary-White w-3/5 md:text-left mb-8 text-center">kunjungi halaman komunitas dan tingkatkan engagement bisnis dan jasamu!</p>
+            <p className="text-sm md:text-lg font-normal text-Primary-White w-3/5 md:text-left mb-8 text-center">Kunjungi halaman komunitas dan tingkatkan engagement bisnis dan jasamu!</p>
             <div>
               <button className="px-4 py-2 btn text-base inline-block bg-Primary-White border-0 hover:bg-Secondary-LightTeal duration-300 ease-in-out active:bg-Secondary-LightTeal text-Primary-Blue">Jelajahi Komunitas BRAW!</button>
             </div>
