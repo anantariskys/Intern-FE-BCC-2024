@@ -3,7 +3,7 @@ import FooterList from "./FooterList";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-9 md:py-20 lg:py-9 flex gap-9 flex-col justify-center font-Poppins  bg-Primary-Blue ">
+    <footer className="w-full py-9 md:py-20 lg:py-16 flex gap-9 flex-col justify-center font-Poppins  bg-Primary-Blue ">
       <div className=" flex flex-col lg:flex-row  gap-9 gap-x-32 lg:justify-center lg:items-start">
         <div className="flex flex-col gap-4 lg:gap-9 items-center">
           <h3 className="text-sm bg-Primary-White bg-opacity-40 py-1 font-semibold px-3 text-Text-Black  rounded-2xl">🧑‍💻 Butuh Bantuan?</h3>

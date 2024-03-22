@@ -49,7 +49,7 @@ const Preloved = () => {
 
   return (
     <div className="bg-Primary-LightBlue">
-      <main className="w-full p-4 lg:px-24 lg:py-10 lg:gap-8 flex lg:flex-row-reverse flex-col">
+      <main className="w-full p-4 lg:px-24 lg:py-20 lg:gap-8 flex lg:flex-row-reverse flex-col">
         <div>
           <HeaderCard btnText={"Mulai Jualan"} to={"/preloved/add"} message={"Punya barang tak terpakai? Jual di sini aja!"} />
           <section className="w-full py-4 mb-8">
