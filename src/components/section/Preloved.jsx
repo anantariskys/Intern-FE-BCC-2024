@@ -4,24 +4,21 @@ import { Link } from "react-router-dom";
 import { getAllPreloved } from "../../api/services/preloved";
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { preloved } from "../../data/dummy";
 const Preloved = () => {
-  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getAllPreloved();
-        setData(response.data.slice(0, 4));
-     
-        setIsLoading(false);
-     
-      } catch (error) {
-        console.log(error);
-      }
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  
+    return () => {
+      clearTimeout(timeout);
     };
-    fetchData();
   }, []);
+  
 
   
 
@@ -39,7 +36,7 @@ const Preloved = () => {
         </div>
       ) : (
         <>
-          {data && data.length > 0 ? (
+          {preloved && preloved.length > 0 ? (
             <Splide
               options={{
                 arrows: false,
@@ -49,18 +46,18 @@ const Preloved = () => {
                 autoplay: true,
               }}
             >
-              {data.map((item, index) => (
+              {preloved.map((item, index) => (
                 <SplideSlide key={index}>
-                    <Link to={`preloved/${item.idPreloved}`}>
+                    <Link to={`preloved/${index+1}`}>
                   <div className="w-full duration-100 ease-in-out flex p-4 bg-gradient-to-r mb-10 gap-4 from-Primary-Purple font-Poppins to-Primary-Blue rounded-2xl">
-                    <img src={`https://source.unsplash.com/random/900×700/?${item.title.split(' ')[0]}`} alt="card-image" loading="lazy" draggable="false" className="h-28 lg:h-60 object-cover aspect-square rounded-xl" />
+                    <img src={`https://picsum.photos/seed/${item.name}/800/800`} alt="card-image" loading="lazy" draggable="false" className="h-28 lg:h-60 object-cover aspect-square rounded-xl" />
                     <div className="flex flex-col justify-between lg:justify-center gap-4">
-                      <h1 className="text-base lg:text-2xl text-Primary-LightBlue font-medium">{item.title}</h1>
+                      <h1 className="text-base lg:text-2xl text-Primary-LightBlue font-medium">{item.name}</h1>
                       <div className="flex flex-col lg:gap-4">
                         <div>
                           <div className="text-sm lg:text-2xl inline-block text-Primary-Blue bg-Primary-LightBlue px-3 py-px mb-2   rounded-2xl text-center font-semibold">{item.price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR',minimumFractionDigits: 0  })}</div>
                         </div>
-                        <p className="text-base lg:text-2xl text-Primary-LightBlue font-medium">⭐ Kondisi {item.condition}</p>
+                        <p className="text-base lg:text-2xl text-Primary-LightBlue font-medium">⭐ Kondisi {item.kondisi}</p>
                       </div>
                     </div>
                   </div>
