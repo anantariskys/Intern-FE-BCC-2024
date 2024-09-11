@@ -1,0 +1,111 @@
+export const preloved = [
+  {
+    name: "Sepatu Vans Old Skool Rain Drum/True White",
+    price: "Rp 849.000",
+    kondisi: "90%",
+    image: "https://source.unsplash.com/random/900×700/?sneakers",
+  },
+  {
+    name: "Kemeja Pria Slim Fit",
+    price: "Rp 249.000",
+    kondisi: "95%",
+    image: "https://source.unsplash.com/random/900x700/?shirt",
+  },
+  {
+    name: "Tas Ransel Laptop",
+    price: "Rp 399.000",
+    kondisi: "99%",
+    image: "https://source.unsplash.com/random/900x700/?bag",
+  },
+  {
+    name: "Jam Tangan Sport Digital",
+    price: "Rp 179.000",
+    kondisi: "85%",
+    image: "https://source.unsplash.com/random/900x700/?watch",
+  },
+  {
+    name: "Celana Panjang Chino",
+    price: "Rp 299.000",
+    kondisi: "70%",
+    image: "https://source.unsplash.com/random/900x700/?pants",
+  },
+  {
+    name: "Topi Baseball Casual",
+    price: "Rp 99.000",
+    kondisi: "89%",
+    image: "https://source.unsplash.com/random/900x700/?cap",
+  },
+];
+
+export const jastip = [
+  {
+    idJastip: 1,
+    name: "design-kaos-spanduk",
+    title: "Jasa Design Kaos dan Spanduk",
+    price: 50000,
+    closeOrder: "25 September 2024",
+  },
+  {
+    idJastip: 2,
+    name: "edit-video-professional",
+    title: "Jasa Edit Video Professional",
+    price: 15000,
+    closeOrder: "30 September 2024",
+  },
+  {
+    idJastip: 3,
+    name: "pembuatan-website",
+    title: "Jasa Pembuatan Website",
+    price: 30000,
+    closeOrder: "1 Oktober 2024",
+  },
+  {
+    idJastip: 4,
+    name: "fotografi-event",
+    title: "Jasa Fotografi Event",
+    price: 500000,
+    closeOrder: "15 September 2024",
+  },
+  {
+    idJastip: 5,
+    name: "desain-logo",
+    title: "Jasa Pembuatan Logo",
+    price: 200000,
+    closeOrder: "10 Oktober 2024",
+  },
+  {
+    idJastip: 6,
+    name: "desain-interior",
+    title: "Jasa Desain Interior",
+    price: 100000,
+    closeOrder: "20 September 2024",
+  },
+  {
+    idJastip: 7,
+    name: "konsultasi-digital-marketing",
+    title: "Jasa Konsultasi Digital Marketing",
+    price: 150000,
+    closeOrder: "12 Oktober 2024",
+  },
+  {
+    idJastip: 8,
+    name: "penyusunan-skripsi",
+    title: "Jasa Penyusunan Skripsi dan Tesis",
+    price: 50000,
+    closeOrder: "30 Oktober 2024",
+  },
+  {
+    idJastip: 9,
+    name: "pengelolaan-media-sosial",
+    title: "Jasa Pengelolaan Media Sosial",
+    price: 500000,
+    closeOrder: "5 Oktober 2024",
+  },
+  {
+    idJastip: 10,
+    name: "maintenance-website",
+    title: "Jasa Maintenance Website",
+    price: 250000,
+    closeOrder: "10 November 2024",
+  },
+];
