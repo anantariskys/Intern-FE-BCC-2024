@@ -9,80 +9,9 @@ import Preloved from "../components/section/Preloved";
 import Jastip from "../components/section/Jastip";
 import Komunitas from "../components/section/Komunitas";
 
-const dummy = [
-  {
-    name: "Sepatu Vans Old Skool Rain Drum/True White",
-    price: "Rp 849.000",
-    kondisi: "90%",
-    image: "https://source.unsplash.com/random/900×700/?sneakers",
-  },
-  {
-    name: "Kemeja Pria Slim Fit",
-    price: "Rp 249.000",
-    kondisi: "95%",
-    image: "https://source.unsplash.com/random/900x700/?shirt",
-  },
-  {
-    name: "Tas Ransel Laptop",
-    price: "Rp 399.000",
-    kondisi: "99%",
-    image: "https://source.unsplash.com/random/900x700/?bag",
-  },
-  {
-    name: "Jam Tangan Sport Digital",
-    price: "Rp 179.000",
-    kondisi: "85%",
-    image: "https://source.unsplash.com/random/900x700/?watch",
-  },
-  {
-    name: "Celana Panjang Chino",
-    price: "Rp 299.000",
-    kondisi: "70%",
-    image: "https://source.unsplash.com/random/900x700/?pants",
-  },
-  {
-    name: "Topi Baseball Casual",
-    price: "Rp 99.000",
-    kondisi: "89%",
-    image: "https://source.unsplash.com/random/900x700/?cap",
-  },
-];
 
-const dumm1 = [
-  {
-    name: "Skin Care & Sunscreen Wardah",
-    price: "Rp 41.000/pcs",
-    closeOrder: "Close order -",
-    image: "https://source.unsplash.com/random/900x700/?skincare",
-  },
-  {
-    name: "Mochi Segala Rasa",
-    price: "Rp 25.000/pax",
-    closeOrder: "Close order 21.00",
-    image: "https://source.unsplash.com/random/900x700/?mochi",
-  },
-  {
-    name: "Titip Print Makalah",
-    price: "Rp 5.000/pcs",
-    closeOrder: "Close order 21.00",
-    image: "https://source.unsplash.com/random/900x700/?paper",
-  },
-];
 
-const dummy2 = [
-  {
-    name: "Jasa Design Kaos dan Spanduk Jasa Design Kaos dan Spanduk",
-    price: "Harga disesuaikan",
-  },
-  {
-    name: "Jasa Edit Video Professional",
-    price: "Rp 15.000/jam",
-  },
-  {
-    name: "Jasa Pembuatan Web",
-    price: "Rp 30.000/jam",
-  },
-];
+
 
 const Home = () => {
   return (
